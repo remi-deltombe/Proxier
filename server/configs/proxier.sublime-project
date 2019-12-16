@@ -2,7 +2,7 @@
 	"folders":
 	[
 		{
-			"path": "/home/remi/Projects/proxier/server"
+			"path": "./.."
 		}
 	],
     "build_systems":
