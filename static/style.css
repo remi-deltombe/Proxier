@@ -1,0 +1,143 @@
+
+* {
+	padding:0;
+	margin:0;
+	border:0;
+	box-sizing: border-box;
+	font-size: 14px;
+	line-height: 120%;
+	font-family: sans-serif;
+}
+
+html, body, .app {
+	height: 100%;
+	width: 100%;
+}
+
+.app {
+	background: #eee;
+}
+
+.tabs {
+	width:100%;
+	background: #fff; 
+	overflow: hidden;
+	border-bottom: 1px solid #ccc;
+}
+	.tab {
+		float: left;
+		cursor:pointer;
+		padding: 5px 12px 8px;
+		border-top: 3px solid #fff;
+		color: #555;
+	}
+
+	.tab:hover {
+		border-top-color: #ccc;
+	}
+
+	.tab.is-active,
+	.tab.is-active:hover {
+		border-top-color: rgb(0,100,255);
+		color: rgb(0,100,255);
+		cursor: initial;
+	}
+
+.proxy-setup {
+	padding: 40px;
+	padding-top: 150px;
+}
+
+	.proxy-setup .proxy-setup-content
+	{
+		background: #fff;
+		padding: 20px;
+		max-width: 300px;
+		width: 100%;
+		margin: 0 auto;
+		box-shadow: 5px 5px 0px #ddd;
+		overflow: hidden;
+	}
+
+		.proxy-setup .proxy-setup-content .title
+		{
+			font-size: 16px;
+			line-height: 120%;
+			padding: 12px 0 20px;
+			color: rgb(0,100,255);
+		}
+
+.page {
+	padding: 1px;
+}
+
+.field
+{
+	display: block;
+	width: 100%;
+	margin-bottom: 12px;
+}
+	.field .label
+	{
+		color: #aaa;
+		font-size: 12px;
+	}
+
+	.field input
+	{
+		display: block;
+		transition: .2s;
+		border-bottom: 1px solid #ccc;
+		padding: 6px 0;
+		width: 100%;
+	}
+
+	.field input:focus
+	{
+		color: rgb(0,100,255);
+		border-color: rgb(0,100,255);
+	}
+
+.button {
+	background: #fff;
+	border: 1px solid #ccc;
+	box-shadow: 2px 2px 0px #ccc;
+	padding: 6px 20px;
+	cursor: pointer;
+	transition: .2s;
+}
+
+.button.is-main {
+	background: rgb(0,100,255);
+	border: 0;
+	color: #fff;
+}
+
+.button.is-small {
+	padding: 3px 12px;
+	font-size: 12px;
+	line-height: 100%;
+}
+
+.button.is-main:hover {
+	background: rgb(0,80,215);
+	border: 0;
+	color: #fff;
+}
+
+.is-right
+{
+	float: right;
+}
+
+.table {
+	width:100%;
+	column-span: 0;
+	border-collapse: collapse;
+}
+
+th,td {
+	padding: 3px;
+	background: #fff;
+	border: 1px solid #ccc;
+}
