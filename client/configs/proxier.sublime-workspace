@@ -1,0 +1,1590 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"hand",
+				"handleUpdate"
+			],
+			[
+				"seri",
+				"serializable"
+			],
+			[
+				"ser",
+				"serializable"
+			],
+			[
+				"ha",
+				"handleMessage"
+			],
+			[
+				"Seri",
+				"Serializable"
+			],
+			[
+				"Se",
+				"Serializable"
+			],
+			[
+				"inter",
+				"internalId"
+			],
+			[
+				"React",
+				"ReactDOM"
+			],
+			[
+				"Prox",
+				"ProxyClient"
+			],
+			[
+				"Serve",
+				"ServerEvent"
+			],
+			[
+				"regi",
+				"registrations"
+			],
+			[
+				"Re",
+				"Request"
+			],
+			[
+				"ex",
+				"exchanges"
+			],
+			[
+				"fi",
+				"readFileSync"
+			],
+			[
+				"file",
+				"fileExist"
+			],
+			[
+				"exch",
+				"exchange"
+			],
+			[
+				"render",
+				"renderTableHeaderItem"
+			],
+			[
+				"stro",
+				"strokeStyle\twarning"
+			],
+			[
+				"item",
+				"itemHeight\tconst"
+			],
+			[
+				"sub",
+				"substr\tmethod"
+			],
+			[
+				"append",
+				"appendTo\twarning"
+			],
+			[
+				"in",
+				"instanciate\tfunction"
+			],
+			[
+				"defaul",
+				"defaultValue\tparameter"
+			],
+			[
+				"Button",
+				"Button2\talias"
+			],
+			[
+				"resol",
+				"resolved"
+			],
+			[
+				"expo",
+				"exporter"
+			],
+			[
+				"re",
+				"requestAnimationFrame\tfunction"
+			],
+			[
+				"MAP",
+				"MAP_WIDTH\tproperty"
+			],
+			[
+				"su",
+				"substr\tmethod"
+			],
+			[
+				"HOL",
+				"HOLDABLE_TRAP"
+			],
+			[
+				"ROBOT",
+				"ROBOT_STATUS_NONE"
+			],
+			[
+				"FOR",
+				"FOR_ROBOT"
+			],
+			[
+				"ACTION_",
+				"ACTION_TYPE_WAIT"
+			],
+			[
+				"CELL",
+				"CELL_XY"
+			],
+			[
+				"AT",
+				"ACTION_TYPE_MOVE"
+			],
+			[
+				"avai",
+				"availableOres"
+			],
+			[
+				"ACTI",
+				"ACTION_TYPE_MOVE"
+			],
+			[
+				"FOR_",
+				"FOR_ROBOT"
+			],
+			[
+				"RO",
+				"ROBOTS_PER_PLAYER"
+			],
+			[
+				"PL",
+				"ROBOTS_PER_PLAYER"
+			],
+			[
+				"ai_a",
+				"ai_apply_trap"
+			],
+			[
+				"HO",
+				"HOLDABLE_RADAR"
+			],
+			[
+				"FOR_RO",
+				"FOR_ROBOT"
+			],
+			[
+				"ACT",
+				"ACTION_TYPE_MOVE"
+			],
+			[
+				"ai_soc",
+				"ai_score_distance"
+			],
+			[
+				"STATUS",
+				"CELL_STATUS_TRAP"
+			],
+			[
+				"HOD",
+				"HOLDABLE_NONE"
+			],
+			[
+				"turn",
+				"turnDigged"
+			],
+			[
+				"max",
+				"maxOre"
+			],
+			[
+				"HOLD",
+				"HOLDABLE_NONE"
+			],
+			[
+				"repla",
+				"replaced"
+			],
+			[
+				"CE",
+				"CELL_STATUS_TRAP"
+			],
+			[
+				"ROBO",
+				"ROBOTS_PER_PLAYER"
+			],
+			[
+				"type",
+				"typename"
+			],
+			[
+				"MAX",
+				"MAX_DISTANCE"
+			],
+			[
+				"CEL",
+				"CELL_STATUS_UNKNOW"
+			],
+			[
+				"CELL_",
+				"CELL_STATUS_TRAP"
+			],
+			[
+				"AC",
+				"ACTION_TYPE_DIG"
+			],
+			[
+				"to",
+				"trapTop"
+			],
+			[
+				"DIS",
+				"maxDistance"
+			],
+			[
+				"trap",
+				"trappable"
+			],
+			[
+				"find",
+				"ai_findRadarPosition"
+			],
+			[
+				"radar",
+				"radarPosition"
+			],
+			[
+				"target",
+				"targeted"
+			],
+			[
+				"targ",
+				"targeted"
+			],
+			[
+				"a",
+				"available"
+			],
+			[
+				"ACTION",
+				"ACTION_TYPE_DIG"
+			],
+			[
+				"rada",
+				"radarPosition"
+			],
+			[
+				"best",
+				"bestScore"
+			],
+			[
+				"Cell",
+				"CellStatus"
+			],
+			[
+				"op",
+				"opened\tlet"
+			],
+			[
+				"pan",
+				"panY\tvar"
+			],
+			[
+				"Test",
+				"TestBenchmark"
+			],
+			[
+				"ite",
+				"_iteration"
+			],
+			[
+				"Be",
+				"benchmark"
+			],
+			[
+				"BIN",
+				"BIN_ONLINE"
+			],
+			[
+				"margin",
+				"margin-bottom\tproperty"
+			],
+			[
+				"clu",
+				"cluster"
+			],
+			[
+				"push",
+				"push_back"
+			],
+			[
+				"clus",
+				"clusters"
+			],
+			[
+				"cluste",
+				"clusterized"
+			],
+			[
+				"cluster",
+				"clustered"
+			],
+			[
+				"MA",
+				"MAX_EDGES_PER_NODE"
+			],
+			[
+				"NODE",
+				"MAX_EDGES_PER_NODE"
+			],
+			[
+				"edges",
+				"edgesFrom"
+			],
+			[
+				"link",
+				"linksTo"
+			],
+			[
+				"lni",
+				"linksFrom"
+			],
+			[
+				"str",
+				"stringstream"
+			],
+			[
+				"lin",
+				"_links"
+			],
+			[
+				"inc",
+				"inc\t#include \"…\""
+			],
+			[
+				"Router",
+				"RouterDom\tany"
+			],
+			[
+				"ro",
+				"round\t(x: number) => number"
+			],
+			[
+				"bu",
+				"buildCss"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/home/remi/Projects/proxier/client/sources/components/api/sources/api.ts",
+			"settings":
+			{
+				"buffer_size": 1290,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/remi/Projects/proxier/client/sources/components/socket-client/sources/interfaces.ts",
+			"settings":
+			{
+				"buffer_size": 68,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/remi/Projects/proxier/client/sources/components/socket-client/sources/socket-client.ts",
+			"settings":
+			{
+				"buffer_size": 471,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/remi/Projects/proxier/client/sources/components/api/sources/endpoint.ts",
+			"settings":
+			{
+				"buffer_size": 3020,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/remi/Projects/proxier/client/tools/gulp/sources/commands/build.js",
+			"settings":
+			{
+				"buffer_size": 581,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/remi/Projects/proxier/client/sources/components/application/sources/application.tsx",
+			"settings":
+			{
+				"buffer_size": 573,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/remi/Projects/proxier/client/sources/components/project/sources/project.tsx",
+			"settings":
+			{
+				"buffer_size": 1264,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/remi/Projects/proxier/client/sources/components/proxy/sources/proxy.ts",
+			"settings":
+			{
+				"buffer_size": 480,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/remi/Projects/proxier/client/sources/components/button/sources/button.tsx",
+			"settings":
+			{
+				"buffer_size": 240,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "build",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"build",
+					""
+				],
+				[
+					"clear",
+					""
+				],
+				[
+					"install",
+					""
+				],
+				[
+					"update",
+					""
+				],
+				[
+					"Packages/Makefile/Make.sublime-build",
+					""
+				],
+				[
+					"Packages/Makefile/Make.sublime-build",
+					"Clean"
+				]
+			],
+			[
+				"build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"tog men",
+				"View: Toggle Menu"
+			],
+			[
+				"new ",
+				"Build: New Build System"
+			],
+			[
+				"pack insta",
+				"Package Control: Install Package"
+			],
+			[
+				"pack re",
+				"Package Control: Remove Package"
+			],
+			[
+				"save proj",
+				"Project: Save As"
+			],
+			[
+				"pack ins",
+				"Package Control: Install Package"
+			],
+			[
+				"packag",
+				"Package Control: Install Package"
+			],
+			[
+				"set ",
+				"Set Syntax: TypeScriptReact"
+			],
+			[
+				"buil",
+				"Build: Cancel"
+			],
+			[
+				"togm ",
+				"View: Toggle Menu"
+			],
+			[
+				"to me",
+				"View: Toggle Menu"
+			],
+			[
+				"to m",
+				"View: Toggle Menu"
+			],
+			[
+				"to meu",
+				"View: Toggle Menu"
+			],
+			[
+				"to",
+				"View: Toggle Menu"
+			],
+			[
+				"c++",
+				"Set Syntax: C++"
+			],
+			[
+				"incr",
+				"Increment Selection"
+			],
+			[
+				"tog ",
+				"View: Toggle Menu"
+			],
+			[
+				"inc",
+				"Increment Selection"
+			],
+			[
+				"packa di",
+				"Package Control: Disable Package"
+			],
+			[
+				"set javas",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"build ma",
+				"Build With: Make - Clean"
+			],
+			[
+				"to men",
+				"View: Toggle Menu"
+			],
+			[
+				"vim ",
+				"ActualVim: Disable (Global)"
+			],
+			[
+				"togl",
+				"View: Toggle Menu"
+			],
+			[
+				"AL",
+				"AlignTab: Live Preview Mode"
+			],
+			[
+				"ali",
+				"AlignTab"
+			],
+			[
+				"al",
+				"AlignTab: Live Preview Mode"
+			],
+			[
+				"pack in",
+				"Package Control: Install Package"
+			],
+			[
+				"pack",
+				"Package Control: Remove Package"
+			],
+			[
+				"csv",
+				"CSV: Format"
+			],
+			[
+				"packa ins",
+				"Package Control: Install Package"
+			],
+			[
+				"set c",
+				"Set Syntax: C++"
+			],
+			[
+				"make",
+				"Build With: Make - Clean"
+			],
+			[
+				"in",
+				"Increment Selection"
+			],
+			[
+				"packa in",
+				"Package Control: Install Package"
+			],
+			[
+				"packa re",
+				"Package Control: Remove Package"
+			],
+			[
+				"build ",
+				"Build With: Make"
+			],
+			[
+				"tog me",
+				"View: Toggle Menu"
+			],
+			[
+				"project",
+				"Project: Save As"
+			],
+			[
+				"snip clas",
+				"Snippet: Object-Value-JS"
+			],
+			[
+				"menu",
+				"View: Toggle Menu"
+			],
+			[
+				"set syntax re",
+				"Set Syntax: Reason"
+			],
+			[
+				"set reas",
+				"Set Syntax: Reason"
+			],
+			[
+				"javascr",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"set s babe",
+				"Set Syntax: JavaScript (Babel)"
+			],
+			[
+				"set javasc",
+				"Set Syntax: JavaScript (Rails)"
+			],
+			[
+				"packa remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"set jsx",
+				"Set Syntax: JSX"
+			],
+			[
+				"set jade",
+				"Set Syntax: Jade"
+			],
+			[
+				"set sass",
+				"Set Syntax: Sass"
+			],
+			[
+				"pac ins",
+				"Package Control: Install Package"
+			],
+			[
+				"men",
+				"View: Toggle Menu"
+			],
+			[
+				"ACTU",
+				"ActualVim: Disable (Global)"
+			],
+			[
+				"pre",
+				"Preferences: ActualVim Settings"
+			],
+			[
+				"prefer",
+				"Preferences: ActualVim Settings"
+			],
+			[
+				"actua",
+				"ActualVim: Enable (Global)"
+			],
+			[
+				"p",
+				"Package Control: Install Package"
+			],
+			[
+				"tab",
+				"View: Toggle Tabs"
+			],
+			[
+				"side",
+				"View: Toggle Side Bar"
+			],
+			[
+				"set syn babe",
+				"Set Syntax: JavaScript (Babel)"
+			],
+			[
+				"packa",
+				"Package Control: Remove Package"
+			],
+			[
+				"lint",
+				"ESLint"
+			],
+			[
+				"pa",
+				"Package Control: List Packages"
+			],
+			[
+				"package in",
+				"Package Control: Install Package"
+			],
+			[
+				"tog",
+				"View: Toggle Side Bar"
+			],
+			[
+				"vi",
+				"View: Toggle Side Bar"
+			],
+			[
+				"ke",
+				"Preferences: Key Bindings"
+			],
+			[
+				"vie",
+				"View: Toggle Side Bar"
+			],
+			[
+				"folder",
+				"Project: Add Folder"
+			],
+			[
+				"preferen",
+				"Preferences: Settings"
+			],
+			[
+				"ayu",
+				"ayu: Activate theme"
+			],
+			[
+				"open f",
+				"View: Toggle Open Files in Side Bar"
+			],
+			[
+				"view",
+				"View: Toggle Menu"
+			],
+			[
+				"ayu: Activate theme",
+				"ayu: Activate theme"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 174.0,
+		"history":
+		[
+			":help"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/remi/Projects/proxier/client",
+		"/home/remi/Projects/proxier/client/sources",
+		"/home/remi/Projects/proxier/client/sources/components",
+		"/home/remi/Projects/proxier/client/sources/components/api",
+		"/home/remi/Projects/proxier/client/sources/components/api/sources",
+		"/home/remi/Projects/proxier/client/sources/components/application",
+		"/home/remi/Projects/proxier/client/sources/components/application/sources",
+		"/home/remi/Projects/proxier/client/sources/components/button",
+		"/home/remi/Projects/proxier/client/sources/components/button/sources",
+		"/home/remi/Projects/proxier/client/sources/components/event",
+		"/home/remi/Projects/proxier/client/sources/components/project",
+		"/home/remi/Projects/proxier/client/sources/components/project/sources",
+		"/home/remi/Projects/proxier/client/sources/components/protocol",
+		"/home/remi/Projects/proxier/client/sources/components/proxy",
+		"/home/remi/Projects/proxier/client/sources/components/proxy/sources",
+		"/home/remi/Projects/proxier/client/tools",
+		"/home/remi/Projects/proxier/client/tools/gulp",
+		"/home/remi/Projects/proxier/client/tools/gulp/sources",
+		"/home/remi/Projects/proxier/client/tools/gulp/sources/buildables",
+		"/home/remi/Projects/proxier/client/tools/gulp/sources/commands",
+		"/home/remi/Projects/proxier/client/tools/gulp/sources/compilers"
+	],
+	"file_history":
+	[
+		"/home/remi/Projects/proxier/client/sources/components/application/sources/application.tsx",
+		"/home/remi/Projects/proxier/client/sources/components/api/sources/interfaces.ts",
+		"/home/remi/Projects/proxier/client/sources/components/serializable/sources/serializable.ts",
+		"/home/remi/Projects/proxier/client/builds/components/api/api.js",
+		"/home/remi/Projects/proxier/client/tools/gulp/sources/compilers/typescript.js",
+		"/home/remi/Projects/proxier/client/builds/components/proxy/proxy.d.ts",
+		"/home/remi/Projects/proxier/client/sources/components/api/sources/endpoint.ts",
+		"/home/remi/Projects/proxier/client/sources/components/proxy/sources/proxy.ts",
+		"/home/remi/Projects/proxier/client/makefile",
+		"/home/remi/Projects/proxier/client/tools/gulp/sources/buildables/component.js",
+		"/home/remi/Projects/proxier/client/builds/components/api/api.d.ts",
+		"/home/remi/Projects/proxier/client/sources/components/proxy/proxy.ts",
+		"/home/remi/Projects/proxier/client/sources/components/serializable/serializable.ts",
+		"/home/remi/Projects/proxier/client/sources/components/serializable/sources/sources/components/serializable/serializable.ts",
+		"/home/remi/Projects/proxier/client/sources/components/api/sources/api.ts",
+		"/home/remi/Projects/proxier/client/sources/components/socket-client/sources/socket-client.ts",
+		"/home/remi/Projects/proxier/client/sources/components/socket-client/sources/interfaces.ts",
+		"/home/remi/Projects/proxier/client/builds/components/socket-client/socket-client.d.ts",
+		"/home/remi/Projects/proxier/client/sources/components/api/sources/factory.ts",
+		"/home/remi/Projects/proxier/client/builds/components/application/application.d.ts",
+		"/home/remi/Projects/proxier/client/sources/bootstraps/client/index.jade",
+		"/home/remi/Projects/proxier/client/package.json",
+		"/home/remi/Projects/proxier/client/sources/components/socketclient/sources/socket-client.ts",
+		"/home/remi/Projects/proxier/client/sources/components/socket-client/socket-client.ts",
+		"/home/remi/Projects/proxier/client/sources/components/socketclient/socket-client.ts",
+		"/home/remi/Projects/proxier/client/sources/components/api/api.ts",
+		"/home/remi/Projects/proxier/client/sources/components/protocol/protocol.ts",
+		"/home/remi/Projects/proxier/client/sources/components/protocol/sources/http/request.ts",
+		"/home/remi/Projects/proxier/client/sources/components/protocol/sources/http/http.ts",
+		"/home/remi/Projects/proxier/client/tools/gulp/sources/buildables/bootstrap.js",
+		"/home/remi/Projects/proxier/client/sources/components/protocol/sources/http/response.ts",
+		"/home/remi/Projects/proxier/client/sources/components/proxier/sources/application.tsx",
+		"/home/remi/Projects/proxier/client/tools/gulp/sources/buildables/electron.js",
+		"/home/remi/Projects/proxier/client/sources/components/project/sources/project.tsx",
+		"/home/remi/Projects/proxier/sources/components/proxy-client/sources/proxy-client.ts",
+		"/home/remi/Projects/proxier/sources/components/proxy-server/sources/proxy-server.ts",
+		"/home/remi/Projects/proxier/sources/components/project/sources/project.tsx",
+		"/home/remi/Projects/proxier/sources/components/proxier/sources/application.tsx",
+		"/home/remi/Projects/proxier/sources/bootstraps/proxier-server/index.ts",
+		"/home/remi/Projects/proxier/sources/components/proxier-electron/sources/proxier-electron.tsx",
+		"/home/remi/Projects/proxier/sources/components/protocol-http/sources/request.ts",
+		"/home/remi/Projects/proxier/sources/components/proxy/sources/cache.ts",
+		"/home/remi/Projects/proxier/sources/components/proxy/sources/proxy.ts",
+		"/home/remi/Projects/proxier/sources/components/proxy-client/proxy-client.ts",
+		"/home/remi/Projects/proxier/sources/components/proxy-server/proxy-server.ts",
+		"/home/remi/Projects/proxier/sources/components/event/sources/event.ts",
+		"/home/remi/Projects/proxier/sources/components/event/sources/registration.ts",
+		"/home/remi/Projects/proxier/sources/components/protocol-http/protocol-http.ts",
+		"/home/remi/Projects/proxier/sources/components/protocol-http/sources/response.ts",
+		"/home/remi/Projects/proxier/sources/components/proxy/sources/response.ts",
+		"/home/remi/Projects/proxier/sources/components/proxy/sources/server.ts",
+		"/home/remi/Projects/proxier/sources/components/proxy/sources/exchange.ts",
+		"/home/remi/Projects/proxier/sources/components/proxy/sources/sources/bootstraps/proxier-server/index.ts",
+		"/home/remi/Projects/proxier/sources/components/proxy/sources/handler.ts",
+		"/home/remi/Projects/proxier/sources/components/proxy/sources/sources/components/proxy/sources/proxy.ts",
+		"/home/remi/Projects/proxier/sources/components/proxy/sources/client.ts",
+		"/home/remi/Projects/proxier/sources/components/event/event.ts",
+		"/home/remi/Projects/proxier/sources/components/event/sources/sources/components/proxy/sources/client.ts",
+		"/home/remi/Projects/proxier/sources/components/event/sources/async-event.ts",
+		"/home/remi/Projects/proxier/sources/components/proxier-electron/sources/proxier-electron.ts",
+		"/home/remi/Projects/proxier/sources/components/proxy/sources/request.ts",
+		"/home/remi/Projects/proxier/sources/components/proxy/sources/sources/components/proxy/sources/server.ts",
+		"/home/remi/Projects/proxier/sources/components/proxier-electron/sources/sources/components/proxy/sources/client.ts",
+		"/home/remi/Projects/proxier/tools/gulp/sources/buildables/bootstrap.js",
+		"/home/remi/Projects/proxier/sources/components/proxier-electron/proxier-electron.ts",
+		"/home/remi/Projects/proxier/sources/components/proxy/proxy.ts",
+		"/home/remi/Projects/proxier/sources/components/proxy/sources/server/response.ts",
+		"/home/remi/Projects/proxier/sources/components/proxy/sources/handler/exchange.ts",
+		"/home/remi/Projects/proxier/sources/components/proxy/sources/handler/response.ts",
+		"/home/remi/Projects/proxier/sources/components/proxy/sources/server/request.ts",
+		"/home/remi/Projects/proxier/sources/components/proxy/sources/protocol/exchange.ts",
+		"/home/remi/Projects/proxier/tools/gulp/sources/helpers/filesystem.js",
+		"/home/remi/Projects/proxier/sources/components/proxy/sources/sources/components/proxier-electron/sources/proxier-electron.ts",
+		"/home/remi/Projects/proxier/sources/components/proxier-electron/sources/sources/components/proxier-electron/sources/proxier-electron.ts",
+		"/home/remi/Projects/proxier/sources/components/proxy/sources/server/exchange.ts",
+		"/home/remi/Projects/proxier/tools/gulp/sources/compilers/typescript.js",
+		"/home/remi/Projects/proxier/tools/gulp/sources/buildables/component.js",
+		"/home/remi/Projects/proxier/tools/gulp/sources/commands/build.js",
+		"/home/remi/Projects/proxier/builds/electrons/proxier/package.json",
+		"/home/remi/Projects/proxier/tools/gulp/sources/compilers/electron.js",
+		"/home/remi/Projects/proxier/tools/gulp/sources/helpers/sources/components/proxier-electron/proxier-electron.ts",
+		"/home/remi/Projects/proxier/tools/gulp/package.json",
+		"/home/remi/Projects/proxier/builds/components/button/button.js",
+		"/home/remi/Projects/proxier/builds/components/project/project.js",
+		"/home/remi/Projects/proxier/sources/components/proxy/sources/server/server.ts",
+		"/home/remi/Projects/proxier/sources/components/proxy/sources/protocol/request.ts",
+		"/home/remi/Projects/proxier/sources/components/table/table.ts",
+		"/home/remi/Projects/proxier/sources/components/proxier/proxier.ts",
+		"/home/remi/Projects/proxier/builds/components/project/project.d.ts",
+		"/home/remi/Projects/proxier/builds/components/proxy/proxy.checksum",
+		"/home/remi/Projects/proxier/builds/components/proxy/proxy.d.ts",
+		"/home/remi/Projects/proxier/builds/components/project/project.checksum",
+		"/home/remi/Projects/proxier/tools/gulp/sources/buildables/electron.js",
+		"/home/remi/Projects/proxier/sources/electrons/proxier/proxier.json",
+		"/home/remi/Projects/proxier/sources/electrons/proxier/package.json",
+		"/home/remi/Projects/proxier/sources/components/proxy/sources/protocol/response.ts",
+		"/home/remi/Projects/proxier/sources/components/button/button.ts",
+		"/home/remi/Projects/proxier/tools/gulp/sources/compilers/jade.js",
+		"/home/remi/Projects/proxier/sources/bootstraps/proxier/index.jade",
+		"/home/remi/Projects/proxier/sources/components/table/sources/table.tsx",
+		"/home/remi/Projects/proxier/sources/components/table/sources/interfaces.tsx",
+		"/home/remi/Projects/proxier/sources/components/link/link.ts",
+		"/home/remi/Projects/proxier/sources/components/link/sources/link.tsx",
+		"/home/remi/Projects/proxier/sources/components/input-text/sources/input-text.tsx",
+		"/home/remi/Projects/proxier/sources/components/input-text/input-text.ts",
+		"/home/remi/Projects/proxier/sources/components/proxy/sources/requests/response.ts",
+		"/home/remi/Projects/proxier/sources/components/proxier/sources/sources/components/proxier/proxier.ts",
+		"/home/remi/Projects/proxier/makefile",
+		"/home/remi/Projects/proxier/sources/components/project/project.ts",
+		"/home/remi/Projects/proxier/node_modules/@types/react/index.d.ts",
+		"/home/remi/Projects/proxier/tools/gulp/node_modules/@gulp-sourcemaps/identity-map/node_modules/source-map/package.json",
+		"/home/remi/Projects/proxier/sources/bootstraps/sandbox-js/index.jade",
+		"/home/remi/Projects/proxier/package.json",
+		"/home/remi/Projects/proxier/bootstraps/index.html",
+		"/home/remi/Projects/sandbox-js/tools/gulp/sources/command-build.js",
+		"/home/remi/Projects/sandbox-js/bootstraps/test.html",
+		"/home/remi/Projects/sandbox-js/makefile",
+		"/home/remi/Projects/sandbox-js/configs/package.json",
+		"/home/remi/Projects/sandbox-js/package.json",
+		"/home/remi/Projects/sandbox-js/builds/button/button.js",
+		"/home/remi/Projects/sandbox-js/tools/gulp/sources/components/sandbox-js/sandbox-js.ts",
+		"/home/remi/Projects/sandbox-js/tools/gulp/sources/component-tree.js",
+		"/home/remi/Projects/sandbox-js/components/sandbox-js/sandbox-js.ts",
+		"/home/remi/Projects/sandbox-js/components/sandbox-js/sources/application.tsx",
+		"/home/remi/Projects/sandbox-js/components/sandbox-js/components/sandbox-js/sandbox-js.ts",
+		"/home/remi/Projects/sandbox-js/builds/button/components/sandbox-js/sandbox-js.ts",
+		"/home/remi/Projects/sandbox-js/components/button/sources/button.tsx",
+		"/home/remi/Projects/sandbox-js/configs/sandbox-js.sublime-project"
+	],
+	"find":
+	{
+		"height": 50.0
+	},
+	"find_in_files":
+	{
+		"height": 142.0,
+		"where_history":
+		[
+			"/home/remi/Projects/proxier/node_modules/@types/react",
+			"/home/remi/Projects/proxier/node_modules/@types/react-dom",
+			"/home/remi/Projects/proxier"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"proxied",
+			"link",
+			"http://localhost:7462",
+			"//",
+			"boot",
+			"proxied",
+			"hostname",
+			":",
+			"CREATE",
+			"void",
+			"constructor",
+			"Socket ",
+			"Socket",
+			"SocketIOClientStatic",
+			"SocketIOClient",
+			"aplication",
+			"proxier",
+			"sources/http/",
+			"'/",
+			"'/b",
+			"../../",
+			"../../button/",
+			"header",
+			"request",
+			"this.",
+			"var",
+			"async",
+			"server",
+			"event",
+			"protocol-http",
+			"handler",
+			"Handler",
+			"request",
+			"sender",
+			"target",
+			"onRequest",
+			"../protocol/",
+			"exchanges",
+			"header",
+			"url",
+			"domain",
+			"write",
+			"proxier",
+			"path",
+			"builds",
+			"gulp",
+			"copy",
+			"mkdir",
+			"output",
+			"path",
+			"bootstrap",
+			"boostrap",
+			"checksum",
+			"Request",
+			"- ",
+			"-",
+			"- 3",
+			" EUR",
+			"button",
+			" Button",
+			"td",
+			"th",
+			"children",
+			"tbody",
+			"row",
+			"rows",
+			"td",
+			"h1",
+			"export interface ",
+			"td",
+			"ButtonInterface",
+			"(value)",
+			"value",
+			"setDomain",
+			"domain=",
+			"let",
+			"project",
+			"placeholder",
+			"Button",
+			"th",
+			"thead",
+			"button",
+			"Button",
+			"sandbox-js",
+			"sandbox"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 6,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/home/remi/Projects/proxier/client/sources/components/api/sources/api.ts",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1290,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								434,
+								434
+							]
+						],
+						"settings":
+						{
+							"actual_mode": false,
+							"av_input": false,
+							"syntax": "Packages/TypeScript Syntax/TypeScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 304.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/home/remi/Projects/proxier/client/sources/components/socket-client/sources/interfaces.ts",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 68,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"actual_mode": false,
+							"av_input": false,
+							"syntax": "Packages/TypeScript Syntax/TypeScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/home/remi/Projects/proxier/client/sources/components/socket-client/sources/socket-client.ts",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 471,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								383,
+								383
+							]
+						],
+						"settings":
+						{
+							"actual_mode": false,
+							"av_input": false,
+							"syntax": "Packages/TypeScript Syntax/TypeScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/home/remi/Projects/proxier/client/sources/components/api/sources/endpoint.ts",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3020,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3020,
+								3020
+							]
+						],
+						"settings":
+						{
+							"actual_mode": false,
+							"av_input": false,
+							"syntax": "Packages/TypeScript Syntax/TypeScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2546.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/home/remi/Projects/proxier/client/tools/gulp/sources/commands/build.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 581,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"actual_mode": false,
+							"av_input": false,
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/home/remi/Projects/proxier/client/sources/components/application/sources/application.tsx",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 573,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								510,
+								510
+							]
+						],
+						"settings":
+						{
+							"actual_mode": false,
+							"av_input": false,
+							"syntax": "Packages/TypeScript Syntax/TypeScriptReact.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "/home/remi/Projects/proxier/client/sources/components/project/sources/project.tsx",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1264,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1123,
+								1123
+							]
+						],
+						"settings":
+						{
+							"actual_mode": false,
+							"av_input": false,
+							"syntax": "Packages/TypeScript Syntax/TypeScriptReact.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 16.0,
+						"translation.y": 607.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "/home/remi/Projects/proxier/client/sources/components/proxy/sources/proxy.ts",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 480,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								278,
+								278
+							]
+						],
+						"settings":
+						{
+							"actual_mode": false,
+							"av_input": false,
+							"syntax": "Packages/TypeScript Syntax/TypeScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "/home/remi/Projects/proxier/client/sources/components/button/sources/button.tsx",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 240,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								240,
+								240
+							]
+						],
+						"settings":
+						{
+							"actual_mode": false,
+							"av_input": false,
+							"syntax": "Packages/TypeScript Syntax/TypeScriptReact.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 50.0
+	},
+	"input":
+	{
+		"height": 41.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": false,
+	"output.exec":
+	{
+		"height": 352.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "proxier.sublime-project",
+	"replace":
+	{
+		"height": 74.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"react-d",
+				"node_modules/react-dom/cjs/react-dom.development.js"
+			],
+			[
+				"button.tsx",
+				"components/button/sources/button.tsx"
+			],
+			[
+				"es6-w",
+				"tools/gulp/node_modules/es6-weak-map/package.json"
+			],
+			[
+				"model",
+				"sources/model.hpp"
+			],
+			[
+				"ai",
+				"sources/ai.hpp"
+			],
+			[
+				"ma",
+				"makefile"
+			],
+			[
+				"opt.",
+				"builds/online.opt.cpp"
+			],
+			[
+				"opt",
+				"builds/online.cpp.opt"
+			],
+			[
+				"onlin",
+				"builds/online.cpp"
+			],
+			[
+				"onli",
+				"bootstraps/online.cpp"
+			],
+			[
+				"ca",
+				"js/canvas.js"
+			],
+			[
+				"main",
+				"sources/main.cpp"
+			],
+			[
+				"",
+				"tests/test.cpp"
+			],
+			[
+				"test.c",
+				"tests/test.cpp"
+			],
+			[
+				"make",
+				"makefile"
+			],
+			[
+				"Oni2",
+				"editor/bin_editor/Oni2_editor.re"
+			],
+			[
+				"EditorSur",
+				"editor/UI/EditorSurface.re"
+			],
+			[
+				"editorsu",
+				"editor/UI/EditorSurface.re"
+			],
+			[
+				"store",
+				"editor/Store/StoreThread.re"
+			],
+			[
+				"fontsto",
+				"editor/Store/FontStoreConnector.re"
+			],
+			[
+				"actions",
+				"editor/Model/Actions.re"
+			],
+			[
+				"confi",
+				"editor/Core/ConfigurationValues.re"
+			],
+			[
+				"configur",
+				"editor/Core/ConfigurationParser.re"
+			],
+			[
+				"configuration",
+				"editor/Core/ConfigurationDefaults.re"
+			],
+			[
+				"FontStore",
+				"editor/Store/FontStoreConnector.re"
+			],
+			[
+				"Action",
+				"editor/Model/Actions.re"
+			],
+			[
+				"app.j",
+				"sources/javascript/app.js"
+			],
+			[
+				"app.",
+				"sources/javascript/app.js"
+			],
+			[
+				"g",
+				"gulpfile.js"
+			],
+			[
+				"gulp",
+				"gulpfile.js"
+			],
+			[
+				"pac",
+				"package.json"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 600.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 456.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 435.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

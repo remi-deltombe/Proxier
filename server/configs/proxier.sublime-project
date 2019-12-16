@@ -1,0 +1,45 @@
+{
+	"folders":
+	[
+		{
+			"path": "/home/remi/Projects/proxier/server"
+		}
+	],
+    "build_systems":
+    [
+        {
+            "name": "build",
+            "working_dir": "${project_path}/..",
+            "cmd": ["make", "build"],
+
+            "file_regex": "[^\\/]*(.*\\.tsx?)\\(([0-9]*),([0-9]*)\\):[^e]*(.*)",
+
+            "target": "ansi_color_build",
+            "syntax": "Packages/ANSIescape/ANSI.sublime-syntax"
+        },
+        {
+            "name": "install",
+            "working_dir": "${project_path}/..",
+            "cmd": ["make", "install"],
+
+            "target": "ansi_color_build",
+            "syntax": "Packages/ANSIescape/ANSI.sublime-syntax"
+        },
+        {
+            "name": "update",
+            "working_dir": "${project_path}/..",
+            "cmd": ["make", "update"],
+
+            "target": "ansi_color_build",
+            "syntax": "Packages/ANSIescape/ANSI.sublime-syntax"
+        },
+        {
+            "name": "clear",
+            "working_dir": "${project_path}/..",
+            "cmd": ["make", "clear"],
+
+            "target": "ansi_color_build",
+            "syntax": "Packages/ANSIescape/ANSI.sublime-syntax"
+        }
+    ]
+}

@@ -1,0 +1,24 @@
+doctype html
+html(lang="en")
+  head
+    title="proxier"
+    meta(charset="utf-8")
+
+  body
+    #APP
+    script(
+      type="text/javascript",
+      data-main="../../../builds/components/application/application.js"
+      src="../../../node_modules/requirejs/require.js"
+    )
+    script 
+      |require.config({
+      |  paths: {
+      each path, component in paths
+        |"#{component}" : "#{path}",
+        | 
+      |    "socket.io-client": "/socket.io/socket.io.js",
+      |    "react": "../../../node_modules/react/umd/react.development",
+      |    "react-dom": "../../../node_modules/react-dom/umd/react-dom.development",
+      | }
+      |});
