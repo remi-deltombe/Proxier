@@ -8,6 +8,8 @@ export class Request
 	public port: number = 80;
 	public path: string = '/';
 
+	public rawBody: Buffer;
+	
 	public static fromUrl(url: string) : Request
 	{
 		let parts : string[];

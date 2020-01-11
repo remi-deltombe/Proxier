@@ -23,6 +23,7 @@ export class Client
 					headers[header[0]] = header[1];
 				}
 			}
+
 			const req = http.request({
 			    hostname: request.hostname,
 			    port: request.port,
@@ -62,7 +63,7 @@ export class Client
 			});
 
 			// write data to request body
-			req.write('');
+			req.write(request.rawBody);
 			req.end();
 		})
 	}
@@ -119,7 +120,7 @@ export class Client
 			});
 
 			// write data to request body
-			req.write('');
+			req.write(request.rawBody);
 			req.end();
 		})
 	}

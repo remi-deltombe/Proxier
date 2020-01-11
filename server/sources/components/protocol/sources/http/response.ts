@@ -6,7 +6,7 @@ export class Response
 	public code: number = 200;
 	public header: Map<string, string> = new Map();
 	public body: string = '';
-	public rawBody: Buffer;
+	public rawBody: Buffer = Buffer.from([]);
 
 	public get contentType() : string
 	{

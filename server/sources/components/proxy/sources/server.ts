@@ -32,11 +32,24 @@ export class Server
 		return new Promise(resolve=>{
 
 			this.app = express();
-			
-			this.app.get('*', async (req, res) => {
+
+			this.app.use(function(req, res, next) {
+				const buffer : any = [];
+				req.on('data',  (chunk) => {
+					buffer.push(chunk);
+				});
+
+				req.on('end',() => {
+			        req.body = Buffer.concat(buffer);
+					next();
+				});
+			});
+
+			this.app.all('*', async (req, res) => {
 				const request = new Http.Request();
-				request.method = 'GET'; 
+				request.method = req.method; 
 				request.path = req.url;
+				request.rawBody = req.body;
 
 				for(const i in req.headers)
 				{
