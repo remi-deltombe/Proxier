@@ -1,3 +1,3 @@
 
 export * from './sources/proxy'
-export * from './sources/request'
+export * from './sources/exchange'

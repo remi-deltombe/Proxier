@@ -6,7 +6,7 @@ import { Server } from './server'
 import { Client } from './client'
 import { Parser } from './parser'
 import { Cache } from './cache'
-import { ProxyRequestEvent, ProxyResponseEvent } from './interfaces'
+import { ProxyRequestEvent, ProxyResponseEvent, ProxyExchangeEvent } from './interfaces'
 
 export class Proxy
 {
@@ -14,6 +14,7 @@ export class Proxy
 
 	public onRequest: Event<ProxyRequestEvent> = new Event();
 	public onResponse: Event<ProxyResponseEvent> = new Event();
+	public onExchange: Event<ProxyExchangeEvent> = new Event();
 
 	private started: boolean;
 	private server: Server;
@@ -112,7 +113,8 @@ export class Proxy
 			this.onRequest.fire({request})
 			response = await this.client.send(request);
 			this.parser.parseResponse(response);
-			this.onResponse.fire({ cached, request, response })
+			this.onResponse.fire({ response })
+			this.onExchange.fire({ cached, exchange: new Http.Exchange(request, response) })
 			this.cache.set(request, response);
 		}
 		return response;

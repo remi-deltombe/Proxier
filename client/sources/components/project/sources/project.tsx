@@ -7,7 +7,7 @@ import { InputText } from 'input-text';
 import { Table, TableRowInterface } from 'table';
 import { Link } from 'link';
 import { Api, Endpoint } from 'api';
-import { Proxy , Request } from 'proxy';
+import { Proxy , Exchange } from 'proxy';
 
 export interface ProjectInterface
 {
@@ -16,7 +16,7 @@ export interface ProjectInterface
 
 interface ProjectTableRowInterface extends TableRowInterface
 {
-	request: Request;
+	exchange: Exchange;
 }
 
 export function Project(config: ProjectInterface)
@@ -41,35 +41,36 @@ export function Project(config: ProjectInterface)
 	React.useEffect(()=>{
 		if(proxy)
 		{
-			const endpoint = proxy.requestEndpoint(config.api);
+			const endpoint = proxy.exchangeEndpoint(config.api);
 			const registrations = [
-				endpoint.onCreate.subscribe((request)=>{
+				endpoint.onCreate.subscribe((exchange)=>{
+					console.log('created');
 					rows.push({
-						request,
+						exchange,
 						items: [
-							{ text: request.method },	
-							{ text: request.url },	
-							{ element: <Button text={request.cached ? 'Disable' : 'Enable'} onClick={()=>{
-								request.cached = !request.cached;
-								endpoint.update(request);
+							{ text: exchange.method },	
+							{ text: exchange.url },	
+							{ element: <Button text={exchange.cached ? 'Disable' : 'Enable'} onClick={()=>{
+								exchange.cached = !exchange.cached;
+								endpoint.update(exchange);
 							}}/>},	
 						]
 					})
 					setRows([...rows]);
 				}),
-				endpoint.onUpdate.subscribe((request)=>{
+				endpoint.onUpdate.subscribe((exchange)=>{
 					for(const i in rows)
 					{
-						if(rows[i].request.uuid == request.uuid)
+						if(rows[i].exchange.uuid == exchange.uuid)
 						{
 							rows[i] = {
-								request,
+								exchange,
 								items: [
-									{ text: request.method },	
-									{ text: request.url },	
-									{ element: <Button text={request.cached ? 'Disable' : 'Enable'} onClick={()=>{
-										request.cached = !request.cached;
-										endpoint.update(request);
+									{ text: exchange.method },	
+									{ text: exchange.url },	
+									{ element: <Button text={exchange.cached ? 'Disable' : 'Enable'} onClick={()=>{
+										exchange.cached = !exchange.cached;
+										endpoint.update(exchange);
 									}}/>},	
 								]
 							}
@@ -95,7 +96,7 @@ export function Project(config: ProjectInterface)
 	
 
 	const link = `http://${proxy.hostname}:${proxy.port}`
-	const requestEndpoint = proxy.requestEndpoint(config.api);
+	const exchangeEndpoint = proxy.exchangeEndpoint(config.api);
 	return <div>
 		<Link text={link} link={link} blank={true}/>
 		-> 
@@ -110,12 +111,12 @@ export function Project(config: ProjectInterface)
 							{ element: (
 								<>
 									<Button text="Enable all" onClick={()=>rows.forEach(row=>{
-										row.request.cached = true; 
-										requestEndpoint.update(row.request)
+										row.exchange.cached = true; 
+										exchangeEndpoint.update(row.exchange)
 									})}/>
 									<Button text="Disable all" onClick={()=>rows.forEach(row=>{
-										row.request.cached = false; 
-										requestEndpoint.update(row.request)
+										row.exchange.cached = false; 
+										exchangeEndpoint.update(row.exchange)
 									})}/>
 								</>
 							) }

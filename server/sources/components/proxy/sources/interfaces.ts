@@ -9,15 +9,18 @@ export interface ProxyRequestEvent
 
 export interface ProxyResponseEvent
 {
-	cached: boolean;
-	request:Http.Request;
 	response:Http.Response;
+}
+
+export interface ProxyExchangeEvent
+{
+	cached: boolean;
+	exchange: Http.Exchange;
 }
 
 
 export interface CacheEntry
 {
 	cached: boolean;
-	request:Http.Request;
-	response:Http.Response;
+	exchange: Http.Exchange;
 }

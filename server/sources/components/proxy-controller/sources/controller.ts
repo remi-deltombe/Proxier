@@ -1,7 +1,7 @@
 
 import { Api } from '../../api/api'
 import { EndpointController } from '../../controller/controller'
-import { Controller as RequestController } from '../../request-controller/request-controller'
+import { Controller as ExchangeController } from '../../exchange-controller/exchange-controller'
 import { Serializable } from './serializable'
 import { Proxy } from '../../proxy/proxy'
 import { Uuid } from '../../uuid/uuid'
@@ -9,7 +9,7 @@ import { Uuid } from '../../uuid/uuid'
 export class Controller extends EndpointController<Serializable>
 {
 	private proxies: Map<Uuid, Proxy> = new Map();
-	private controllers: Map<Uuid, RequestController> = new Map();
+	private controllers: Map<Uuid, ExchangeController> = new Map();
 
 	constructor(api: Api)
 	{
@@ -33,7 +33,7 @@ export class Controller extends EndpointController<Serializable>
 	public async handleOnCreate(serializable: Serializable) : Promise<Serializable>
 	{
 		const proxy = new Proxy(serializable.uuid);
-		const controller = new RequestController(this.api, proxy);
+		const controller = new ExchangeController(this.api, proxy);
 
 		controller.start();
 

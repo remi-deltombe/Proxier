@@ -1,7 +1,7 @@
 
 import { Serializable } from 'serializable'
 import { Api, Endpoint } from 'api'
-import { Request } from './request'
+import { Exchange } from './exchange'
 
 export class Proxy implements Serializable
 {
@@ -31,8 +31,8 @@ export class Proxy implements Serializable
 		this.port = data.port;
 	}
 
-	public requestEndpoint(api: Api) : Endpoint<Request>
+	public exchangeEndpoint(api: Api) : Endpoint<Exchange>
 	{
-		return api.registerEndpoint(this.uuid + '/requests', Request);
+		return api.registerEndpoint(this.uuid + '/exchanges', Exchange);
 	}
 }

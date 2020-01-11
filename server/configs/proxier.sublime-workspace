@@ -355,6 +355,24 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "/home/remi/Projects/Proxier/server/sources/components/proxy/sources/parser.ts",
+			"settings":
+			{
+				"buffer_size": 2668,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/remi/Projects/Proxier/server/sources/components/proxy/sources/client.ts",
+			"settings":
+			{
+				"buffer_size": 2836,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "build",
 	"build_system_choices":
@@ -717,7 +735,11 @@
 	},
 	"expanded_folders":
 	[
-		"/home/remi/Projects/proxier/server"
+		"/home/remi/Projects/Proxier/server",
+		"/home/remi/Projects/Proxier/server/sources",
+		"/home/remi/Projects/Proxier/server/sources/components",
+		"/home/remi/Projects/Proxier/server/sources/components/proxy",
+		"/home/remi/Projects/Proxier/server/sources/components/proxy/sources"
 	],
 	"file_history":
 	[
@@ -870,6 +892,15 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"https",
+			"internalSourceRequest",
+			"internalTargetRequest",
+			"internalSourceRequest",
+			"internalTargetRequest",
+			"response.body",
+			"internalSourceRequest",
+			"internalTargetRequest",
+			"aliases",
 			"console",
 			"proxied",
 			"socket-server",
@@ -984,8 +1015,71 @@
 	"groups":
 	[
 		{
+			"selected": 1,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "/home/remi/Projects/Proxier/server/sources/components/proxy/sources/parser.ts",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2668,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2668,
+								2668
+							]
+						],
+						"settings":
+						{
+							"actual_mode": false,
+							"av_input": false,
+							"syntax": "Packages/TypeScript Syntax/TypeScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1014.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/home/remi/Projects/Proxier/server/sources/components/proxy/sources/client.ts",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2836,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								407,
+								481
+							]
+						],
+						"settings":
+						{
+							"actual_mode": false,
+							"av_input": false,
+							"syntax": "Packages/TypeScript Syntax/TypeScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
 			]
 		}
 	],
