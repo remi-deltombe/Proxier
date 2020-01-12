@@ -15,20 +15,48 @@
 			<div class="tab">+</div>	
 		</div>
 		<div class="page">
+			<div>
+				
+			</div>
 			<table class="table is-request">
-				<thead>
+				<thead class="is-primary">
 					<tr>
 						<th></th>
+						<th>Verb</th>
 						<th>Request</th>
 						<th colspan=2>Cache</th>
 					</tr>
+				</thead>
+				<thead class="is-secondary">
 					<tr>
 						<th width=1><input type="checkbox" name=""></th>
-						<th></th>
+						<th width=1>
+							<label class="field">
+								<div class="input">
+									<input type="text" name="" placeholder="filter">
+								</div>
+							</label>
+						</th>
+						<th>
+							<label class="field">
+								<div class="input">
+									<input type="text" name="" placeholder="filter">
+								</div>
+							</label>
+						</th>
 						<th width=1><button class="button is-small">Enable</button></th>
 						<th width=1><button class="button is-small">Invalidate</button></th>
 					</tr>	
 				</thead>
+				<tbody>
+					<tr>
+						<td><input type="checkbox" name=""></td>
+						<td>POST</td>
+						<td>/blabla</td>
+						<td><button class="button is-small">Enable</button></td>
+						<td><button class="button is-small">Invalidate</button></td>
+					</tr>
+				</tbody>
 			</table>
 		</div>
 	</div>

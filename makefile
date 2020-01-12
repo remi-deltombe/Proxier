@@ -12,7 +12,7 @@ build:
 	@cd ./server && make build
 	
 run-server: build
-	@cd ./server && node .
+	@cd ./server && node .1
 
 clear:
 	@cd ./client && make clear

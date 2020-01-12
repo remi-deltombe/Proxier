@@ -1,8 +1,7 @@
 
 import * as React  from 'react';
 import * as ReactDOM  from 'react-dom';
-import { Project } from 'project';
-import { Proxy } from 'proxy';
+import { ProxyController } from 'proxy-controller';
 import { Api } from 'api';
 
 export class Application
@@ -11,7 +10,10 @@ export class Application
 
 	public start()
 	{
-		ReactDOM.render(<Project api={this.api}/>, document.getElementById('APP'));
+		ReactDOM.render(
+			<ProxyController api={this.api}/>, 
+			document.getElementById('APP')
+		);
 	}
 }
 

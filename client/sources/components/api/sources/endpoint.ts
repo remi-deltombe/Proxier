@@ -28,6 +28,11 @@ export class Endpoint<C extends Serializable>
 		return this.internalId;
 	}
 
+	public getInstances() : C[]
+	{
+		return Array.from(this.instances.values());
+	}
+
 	public get serializableClass() : SerializableClass<C>
 	{
 		return this.internalSerializableClass;
@@ -90,18 +95,19 @@ export class Endpoint<C extends Serializable>
 		const toFire : C[] = [];
 		for(const data of payload.payload)
 		{
+			const uuid = data.uuid;
 			let instance: C;
 			if(!this.instances.has(data.uuid))
 			{
 				instance = new this.internalSerializableClass();
-				instance.uuid = payload.uuid;
+				instance.uuid = uuid;
 			}
 			else
 			{
-				instance = this.instances.get(payload.uuid);
+				instance = this.instances.get(uuid);
 			}
-			instance.deserialize(payload.payload);
-			instances.set(payload.uuid, instance);
+			instance.deserialize(data);
+			instances.set(uuid, instance);
 			toFire.push(instance);
 		}
 		this.instances = instances;

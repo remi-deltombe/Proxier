@@ -49,6 +49,10 @@ export class Parser
 		{
 			for(let alias of this.aliases)
 			{
+				for(const [key, value] of response.header)
+				{
+					response.header.set(key, value.replace(alias[0], alias[1]));
+				}
 				response.body = response.body.replace(alias[0], alias[1])
 			}
 		}

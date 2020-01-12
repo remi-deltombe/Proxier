@@ -64,7 +64,13 @@ export class Endpoint<C extends SerializableInterface>
 	public list()
 	{
 		this.server.send(this.id, {
-			action: ApiAction.LIST
+			action: ApiAction.LIST,
+			payload: Array.from(this.instances.values())
+				.map(v=>({
+						uuid:v.uuid.toString(), 
+						...v.serialize()
+					})
+				)
 		});
 	}
 
@@ -89,9 +95,7 @@ export class Endpoint<C extends SerializableInterface>
 
 	private handleList(payload:any)
 	{
-		this.server.send(ApiAction.LIST, {
-
-		})
+		this.list();
 	}
 
 	private async handleCreate(payload:any)

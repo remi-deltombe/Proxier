@@ -135,9 +135,21 @@ html, body, .app {
 	column-span: 0;
 	border-collapse: collapse;
 }
+	thead.is-secondary th {
+		border-bottom: 4px solid #ddd;
+	}
 
-th,td {
-	padding: 3px;
-	background: #fff;
-	border: 1px solid #ccc;
-}
+	th,td {
+		padding: 3px;
+		background: #fff;
+		border: 1px solid #ccc;
+	}
+
+	.table .field {
+		margin: 0;
+	}
+
+	.table .field input
+	{
+		border-bottom: 0px solid #ccc;
+	}
