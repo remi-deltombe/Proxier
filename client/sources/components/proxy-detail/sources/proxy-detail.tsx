@@ -11,9 +11,8 @@ import { Proxy , Exchange } from 'proxy';
 
 export interface ProxyDetailInterface
 {
-	//api: Api;
 	proxy: Proxy;
-	exchangeEndpoint: Endpoint<Exchange>;
+	exchanges: Exchange[];
 }
 
 interface ProxyDetailTableRowInterface extends TableRowInterface
@@ -23,11 +22,10 @@ interface ProxyDetailTableRowInterface extends TableRowInterface
 
 export function ProxyDetail(config: ProxyDetailInterface)
 {
-	const { proxy, exchangeEndpoint } = config;
+	const { proxy, exchanges } = config;
 
 	const link = `http://${proxy.hostname}:${proxy.port}`
-
-	const [rows, setRows] = React.useState<ProxyDetailTableRowInterface[]>([]);
+	const rows = exchanges.map(exchangeToRow);
 
 	function exchangeToRow(exchange: Exchange) : ProxyDetailTableRowInterface
 	{
@@ -38,32 +36,10 @@ export function ProxyDetail(config: ProxyDetailInterface)
 				{ text: exchange.url },	
 				{ element: <Button text={exchange.cached ? 'Disable' : 'Enable'} onClick={()=>{
 					exchange.cached = !exchange.cached;
-					exchangeEndpoint.update(exchange);
 				}}/>},	
 			]
 		}
 	}
-
-	function refreshRows()
-	{
-		setRows(exchangeEndpoint.getInstances().map(exchangeToRow));
-	}
-
-	React.useEffect(()=>{
-		if(exchangeEndpoint)
-		{
-			const registrations = [
-				exchangeEndpoint.onList.subscribe((exchanges)=>refreshRows()),
-				exchangeEndpoint.onCreate.subscribe((exchange)=>refreshRows()),
-				exchangeEndpoint.onUpdate.subscribe((exchange)=>refreshRows()),
-				exchangeEndpoint.onDelete.subscribe((exchange)=>refreshRows()),
-			];
-
-			exchangeEndpoint.list();
-
-			return ()=>registrations.forEach(registration=>registration.unsubscribe())
-		}
-	}, [exchangeEndpoint])
 
 
 	return (
@@ -81,11 +57,9 @@ export function ProxyDetail(config: ProxyDetailInterface)
 								{ element: (<>
 									<Button text="Enable all" onClick={()=>rows.forEach(row=>{
 										row.exchange.cached = true; 
-										exchangeEndpoint.update(row.exchange)
 									})}/>
 									<Button text="Disable all" onClick={()=>rows.forEach(row=>{
 										row.exchange.cached = false; 
-										exchangeEndpoint.update(row.exchange)
 									})}/>
 								</>) }
 						]

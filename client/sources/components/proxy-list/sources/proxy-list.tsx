@@ -6,8 +6,8 @@ import {Endpoint} from 'api';
 
 export interface ProxyListInterface
 {
-	endpoint: Endpoint<Proxy>;
-
+	//endpoint: Endpoint<Proxy>;
+	proxies: Proxy[];
 	onAdd: ()=>void; 
 	onClick: (proxy:Proxy)=>void; 
 }
@@ -15,16 +15,10 @@ export interface ProxyListInterface
 export function ProxyList(config: ProxyListInterface) : JSX.Element
 {
 	const { 
-		endpoint,
+		proxies,
 		onClick,
 		onAdd
 	} = config;
-	const [ proxies, setProxies ] = React.useState([]);
-
-	function refreshProxies() : void
-	{
-		setProxies(endpoint.getInstances());
-	}
 
 	function renderItem(proxy: Proxy) : JSX.Element
 	{
@@ -35,19 +29,6 @@ export function ProxyList(config: ProxyListInterface) : JSX.Element
 	{
 		return <div onClick={e=>onAdd()}>+</div>
 	}
-
-	React.useEffect(()=>{
-		const registrations = [
-			endpoint.onCreate.subscribe((proxy)=>refreshProxies()),
-			endpoint.onUpdate.subscribe((proxy)=>refreshProxies()),
-			endpoint.onDelete.subscribe((proxy)=>refreshProxies()),
-			endpoint.onList.subscribe((proxies)=>refreshProxies())
-		]
-
-		endpoint.list();
-
-		return ()=>registrations.forEach(registration=>registration.unsubscribe())
-	}, [endpoint]);
 
 	return (
 		<>
