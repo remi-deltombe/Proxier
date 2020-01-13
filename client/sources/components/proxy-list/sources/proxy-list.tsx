@@ -8,6 +8,7 @@ export interface ProxyListInterface
 {
 	endpoint: Endpoint<Proxy>;
 
+	onAdd: ()=>void; 
 	onClick: (proxy:Proxy)=>void; 
 }
 
@@ -15,28 +16,14 @@ export function ProxyList(config: ProxyListInterface) : JSX.Element
 {
 	const { 
 		endpoint,
-		onClick = ()=>{}
+		onClick,
+		onAdd
 	} = config;
 	const [ proxies, setProxies ] = React.useState([]);
 
-	function handleOnCreate(proxy: Proxy) : void
+	function refreshProxies() : void
 	{
-
-	}
-
-	function handleOnUpdate(proxy: Proxy) : void
-	{
-
-	}
-
-	function handleOnDelete(proxy: Proxy) : void
-	{
-
-	}
-
-	function handleOnList(proxies: Proxy[]) : void
-	{	
-		setProxies(proxies);
+		setProxies(endpoint.getInstances());
 	}
 
 	function renderItem(proxy: Proxy) : JSX.Element
@@ -46,15 +33,15 @@ export function ProxyList(config: ProxyListInterface) : JSX.Element
 
 	function renderAddButton() : JSX.Element
 	{
-		return <>+</>
+		return <div onClick={e=>onAdd()}>+</div>
 	}
 
 	React.useEffect(()=>{
 		const registrations = [
-			endpoint.onCreate.subscribe((proxy)=>handleOnCreate(proxy)),
-			endpoint.onUpdate.subscribe((proxy)=>handleOnUpdate(proxy)),
-			endpoint.onDelete.subscribe((proxy)=>handleOnDelete(proxy)),
-			endpoint.onList.subscribe((proxies)=>handleOnList(proxies))
+			endpoint.onCreate.subscribe((proxy)=>refreshProxies()),
+			endpoint.onUpdate.subscribe((proxy)=>refreshProxies()),
+			endpoint.onDelete.subscribe((proxy)=>refreshProxies()),
+			endpoint.onList.subscribe((proxies)=>refreshProxies())
 		]
 
 		endpoint.list();

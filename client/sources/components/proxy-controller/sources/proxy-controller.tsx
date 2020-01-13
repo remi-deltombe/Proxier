@@ -34,7 +34,7 @@ export function ProxyController(config: ProxyControllerInterface) : JSX.Element
 		if(proxyEndpoint)
 		{
 			const registrations = [
-				proxyEndpoint.onCreate.subscribe(proxy=>setProxy(proxy))
+				proxyEndpoint.onCreate.subscribe(proxy=>setProxy(proxy)),
 			];
 			return ()=>registrations.forEach(registration=>registration.unsubscribe())
 		}
@@ -47,7 +47,7 @@ export function ProxyController(config: ProxyControllerInterface) : JSX.Element
 
 	return (
 		<>
-			<ProxyList endpoint={proxyEndpoint} onClick={proxy=>setProxy(proxy)}/>
+			<ProxyList endpoint={proxyEndpoint} onClick={proxy=>setProxy(proxy)} onAdd={()=>setProxy(undefined)}/>
 			{ proxy && <ProxyDetail proxy={proxy} exchangeEndpoint={proxy.exchangeEndpoint(api)}/>}
 			{!proxy && <ProxyCreate onCreate={handleOnCreate}/>}
 		</>
