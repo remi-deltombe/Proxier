@@ -6,10 +6,23 @@ const electron = require('../buildables/electron')
 exports.command = function(){
 	const streams = []
 
+	const componentsToBuild = [];
+	const force = process.argv.includes('--force');
+
+	for(let i=process.argv.length; i>0; --i)
+	{
+		if(process.argv[i-1] == '-c')
+		{
+			componentsToBuild.push(process.argv[i]);
+		}
+	}
+
+
 	streams.push(
 		...component
 			.all()
-			.filter(component=>component.changed())
+			.filter(component=>componentsToBuild.length===0 || componentsToBuild.includes(component.name))
+			.filter(component=>force || component.changed())
 			.map(component=>component.build())
 	);
 

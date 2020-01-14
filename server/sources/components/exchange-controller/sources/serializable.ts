@@ -1,10 +1,46 @@
 
 import { SerializableInterface } from '../../serializable/serializable';
 import { ProxyExchangeEvent } from '../../proxy/proxy'
+import { Http } from '../../protocol/protocol'
 import { Uuid } from '../../uuid/uuid';
 
 
 export class Serializable implements SerializableInterface
+{
+	public readonly uuid: Uuid = new Uuid();
+
+	public exchange: Http.Exchange;
+	public cached: boolean = true;
+
+	public serialize() : any {
+		return {
+			cached: this.cached,
+		};
+	}
+
+	public deserialize(data: any) : void {
+		this.cached = data.cached ?? this.cached;
+	}
+
+	public equal(serializable: Serializable)
+	{
+		return (
+			serializable.exchange.request.path == this.exchange.request.path &&
+			serializable.exchange.request.method == this.exchange.request.method
+		);
+	}
+
+	public static fromProxyExchangeEvent(event: ProxyExchangeEvent)
+	{
+		const serializable = new Serializable();		
+		serializable.exchange = event.exchange;
+		serializable.cached = event.cached;
+		return serializable
+	}
+}
+
+
+export class SerializableList implements SerializableInterface
 {
 	public readonly uuid: Uuid = new Uuid();
 
@@ -26,21 +62,13 @@ export class Serializable implements SerializableInterface
 		this.cached = data.cached ?? this.cached;
 	}
 
-	public equal(serializable: Serializable)
+	public static fromSerializable(serializable: Serializable)
 	{
-		return (
-			serializable.url == this.url &&
-			serializable.method == this.method
-		);
-	}
-
-	public static fromProxyExchangeEvent(event: ProxyExchangeEvent)
-	{
-		const serializable = new Serializable();		
-		serializable.url = `${event.exchange.request.protocol}://${event.exchange.request.hostname}${event.exchange.request.path}`;
-		serializable.method = event.exchange.request.method;
-		serializable.cached = event.cached;
-		return serializable
+		const result = new SerializableList();		
+		result.url = `${serializable.exchange.request.protocol}://${serializable.exchange.request.hostname}${serializable.exchange.request.path}`;
+		result.method = serializable.exchange.request.method;
+		result.cached = serializable.cached;
+		return result
 	}
 }
 

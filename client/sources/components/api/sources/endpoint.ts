@@ -6,6 +6,7 @@ import { SocketClient } from 'socket-client';
 
 export class Endpoint<C extends Serializable>
 {
+	public onGet : Event<C, void> = new Event();
 	public onList : Event<C[], void> = new Event();
 	public onCreate : Event<C, void> = new Event();
 	public onUpdate : Event<C, void> = new Event();
@@ -74,6 +75,9 @@ export class Endpoint<C extends Serializable>
 	{
 		switch(payload.action)
 		{
+			case ApiAction.GET:   
+				this.handleGet(payload); 
+				break;
 			case ApiAction.LIST:   
 				this.handleList(payload); 
 				break;
@@ -87,6 +91,14 @@ export class Endpoint<C extends Serializable>
 				this.handleDelete(payload); 
 				break;
 		}
+	}
+
+	private handleGet(payload:any)
+	{
+		const instance = this.instances.get(payload.uuid);
+		instance.deserialize(payload.payload);
+		this.instances.set(payload.uuid, instance);
+		this.onGet.fire(instance);
 	}
 
 	private handleList(payload:any)

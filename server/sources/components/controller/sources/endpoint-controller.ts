@@ -21,6 +21,7 @@ export abstract class EndpointController<C extends SerializableInterface> extend
 	public start() : void
 	{
 		this.endpointRegistrations = [
+			this.endpoint.onList.subscribe(serializables=>this.handleOnList(serializables)),
 			this.endpoint.onCreate.subscribe(serializable=>this.handleOnCreate(serializable)),
 			this.endpoint.onUpdate.subscribe(serializable=>this.handleOnUpdate(serializable)),
 			this.endpoint.onDelete.subscribe(serializable=>this.handleOnDelete(serializable))
@@ -34,6 +35,11 @@ export abstract class EndpointController<C extends SerializableInterface> extend
 			registration.unsubscribe();
 		}
 		this.endpointRegistrations = []
+	}
+
+	protected async handleOnList(serializables: C[]) : Promise<SerializableInterface[]>
+	{
+		return serializables;
 	}
 
 	protected async handleOnCreate(serializable: C) : Promise<C>

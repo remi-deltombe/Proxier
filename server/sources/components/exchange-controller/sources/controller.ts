@@ -2,7 +2,7 @@
 import { Api } from '../../api/api'
 import { Registration } from '../../event/event'
 import { EndpointController } from '../../controller/controller'
-import { Serializable } from './serializable'
+import { Serializable, SerializableList } from './serializable'
 import { Proxy, ProxyExchangeEvent } from '../../proxy/proxy'
 import { Uuid } from '../../uuid/uuid'
 import { Http } from '../../protocol/protocol'
@@ -45,8 +45,7 @@ export class Controller extends EndpointController<Serializable>
 
 	public async handleOnUpdate(serializable: Serializable) : Promise<Serializable>
 	{
-		const request = Http.Request.fromUrl(serializable.url);
-		request.method = serializable.method;
+		const request = serializable.exchange.request;
 		if(serializable.cached)
 		{
 			this.proxy.enableCache(request);
@@ -61,6 +60,11 @@ export class Controller extends EndpointController<Serializable>
 	public async handleOnDelete(serializable: Serializable) : Promise<boolean>
 	{
 		return undefined;
+	}
+
+	protected async handleOnList(serializables: Serializable[]) : Promise<SerializableList[]>
+	{
+		return serializables.map(serializable=>SerializableList.fromSerializable(serializable));
 	}
 
 	private handleOnExchange(event: ProxyExchangeEvent)

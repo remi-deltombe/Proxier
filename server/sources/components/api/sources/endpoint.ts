@@ -9,6 +9,7 @@ export class Endpoint<C extends SerializableInterface>
 	public onCreate : AsyncEvent<C, C> = new AsyncEvent();
 	public onUpdate : AsyncEvent<C, C> = new AsyncEvent();
 	public onDelete : AsyncEvent<C, boolean> = new AsyncEvent();
+	public onList : AsyncEvent<C[], SerializableInterface[]> = new AsyncEvent();
 
 	private internalId: string;
 	private internalSerializableClass: SerializableClass<C>;
@@ -30,6 +31,11 @@ export class Endpoint<C extends SerializableInterface>
 	public get serializableClass() : SerializableClass<C>
 	{
 		return this.internalSerializableClass;
+	}
+
+	public getInstances() : C[]
+	{
+		return Array.from(this.instances.values());
 	}
 
 	public create(serializable: C)
@@ -61,12 +67,20 @@ export class Endpoint<C extends SerializableInterface>
 		});
 	}
 
-	public list()
+	public get(serializable: SerializableInterface)
+	{
+		this.server.send(this.id, {
+			action: ApiAction.GET,
+			uuid: serializable.uuid.toString(),
+			payload: serializable.serialize()
+		});
+	}
+
+	public list(serializables: SerializableInterface[])
 	{
 		this.server.send(this.id, {
 			action: ApiAction.LIST,
-			payload: Array.from(this.instances.values())
-				.map(v=>({
+			payload: serializables.map(v=>({
 						uuid:v.uuid.toString(), 
 						...v.serialize()
 					})
@@ -78,6 +92,9 @@ export class Endpoint<C extends SerializableInterface>
 	{
 		switch(payload.action)
 		{
+			case ApiAction.GET:   
+				this.handleGet(payload); 
+				break;
 			case ApiAction.LIST:   
 				this.handleList(payload); 
 				break;
@@ -93,9 +110,16 @@ export class Endpoint<C extends SerializableInterface>
 		}
 	}
 
-	private handleList(payload:any)
+	private handleGet(payload:any)
 	{
-		this.list();
+		const instance = this.instances.get(payload.uuid);
+		this.get(instance);
+	}
+
+	private async handleList(payload:any)
+	{
+		const result = await this.onList.fireAsync(this.getInstances());
+		this.list(result[0]);
 	}
 
 	private async handleCreate(payload:any)
