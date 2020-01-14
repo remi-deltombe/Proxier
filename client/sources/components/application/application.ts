@@ -1,3 +1,1 @@
-
-export * from './sources/application';
-
+export * from "./sources/application";

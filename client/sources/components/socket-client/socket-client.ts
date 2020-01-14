@@ -1,2 +1,1 @@
-
-export * from './sources/socket-client'
+export * from "./sources/socket-client";

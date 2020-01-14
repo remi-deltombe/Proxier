@@ -1,3 +1,2 @@
-
-export * from './sources/serializable';
-export * from './sources/interfaces';
+export * from "./sources/serializable";
+export * from "./sources/interfaces";

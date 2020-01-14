@@ -1,2 +1,1 @@
-
-export * from './sources/uuid'
+export * from "./sources/uuid";

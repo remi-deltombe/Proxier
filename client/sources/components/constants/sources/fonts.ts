@@ -1,4 +1,3 @@
-
-export const fonts  = {
-	normal : "'Open Sans', sans-serif",
-}
+export const fonts = {
+    normal: "'Open Sans', sans-serif"
+};

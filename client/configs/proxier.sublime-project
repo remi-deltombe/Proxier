@@ -40,6 +40,14 @@
 
             "target": "ansi_color_build",
             "syntax": "Packages/ANSIescape/ANSI.sublime-syntax"
+        },
+        {
+            "name": "beautify",
+            "working_dir": "${project_path}/..",
+            "cmd": ["make", "beautify"],
+
+            "target": "ansi_color_build",
+            "syntax": "Packages/ANSIescape/ANSI.sublime-syntax"
         }
     ]
 }

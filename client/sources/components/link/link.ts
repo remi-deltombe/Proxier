@@ -1,2 +1,1 @@
-
-export * from './sources/link'
+export * from "./sources/link";

@@ -1,6 +1,4 @@
-
-export interface ButtonInterface
-{
-	text: string;
-	onClick?: ()=>void;
+export interface ButtonInterface {
+    text: string;
+    onClick?: () => void;
 }

@@ -1,2 +1,1 @@
-
-export * from './sources/proxy-detail'
+export * from "./sources/proxy-detail";

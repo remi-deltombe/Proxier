@@ -1,3 +1,2 @@
-
-export * from './sources/colors';
-export * from './sources/fonts';
+export * from "./sources/colors";
+export * from "./sources/fonts";

@@ -1,2 +1,1 @@
-
-export * from './sources/controller'
+export * from "./sources/controller";

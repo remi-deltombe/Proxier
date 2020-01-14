@@ -1,6 +1,3 @@
+import * as Http from "./sources/http/http";
 
-import * as Http from './sources/http/http'
-
-export {
-	Http
-}
+export { Http };

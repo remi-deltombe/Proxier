@@ -1,2 +1,1 @@
-
-export * from './sources/input-text'
+export * from "./sources/input-text";

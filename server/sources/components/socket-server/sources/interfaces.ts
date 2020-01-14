@@ -1,6 +1,4 @@
-
-export interface SocketClientEvent
-{
-	id: string;
-	payload: any;
+export interface SocketClientEvent {
+    id: string;
+    payload: any;
 }

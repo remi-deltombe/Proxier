@@ -1,3 +1,2 @@
-
-export * from './sources/table'
-export * from './sources/interfaces'
+export * from "./sources/table";
+export * from "./sources/interfaces";

@@ -1,3 +1,2 @@
-
-export * from './sources/event'
-export * from './sources/registration'
+export * from "./sources/event";
+export * from "./sources/registration";

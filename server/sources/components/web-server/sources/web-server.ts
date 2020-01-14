@@ -1,49 +1,41 @@
+import * as express from "express";
+import * as http from "http";
+import { Express } from "express";
 
+export class WebServer {
+    private app: Express;
+    private server: http.Server;
 
-import * as express from 'express';
-import * as http from 'http';
-import { Express } from 'express';
+    public socketInfo: any = {};
 
-export class WebServer
-{
-	private app : Express;
-	private server : http.Server;
+    public get port(): number {
+        return (this.http.address() as any).port;
+    }
 
-	public socketInfo : any = {};
+    public get url(): string {
+        return "http://localhost:" + this.port;
+    }
 
-	public get port() : number
-	{
-		return (this.http.address() as any).port
-	}
+    public get http(): http.Server {
+        return this.server;
+    }
 
-	public get url() : string
-	{
-		return 'http://localhost:' + this.port;
-	}
+    public async listen(port: number = 0): Promise<boolean> {
+        return new Promise(resolve => {
+            this.app = express();
+            this.app.use(express.static("./../client/"));
+            this.server = this.app.listen(port, () => {
+                console.log(
+                    `Webserver listening on ${
+                        (this.server.address() as any).port
+                    }`
+                );
+                resolve(true);
+            });
+        });
+    }
 
-	public get http() : http.Server
-	{
-		return this.server;
-	}
-
-	public async listen(port: number=0) : Promise<boolean>
-	{
-		return new Promise(resolve=>{
-
-			this.app = express();
-			this.app.use(express.static('./../client/'));
-			this.server = this.app.listen(port, () => {
-				console.log(`Webserver listening on ${(this.server.address() as any).port}`)
-				resolve(true)
-			});
-
-		})
-	}
-
-	public stop()
-	{
-		//this.app.stop();
-	}
-
+    public stop() {
+        //this.app.stop();
+    }
 }
-
