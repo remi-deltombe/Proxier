@@ -2,7 +2,7 @@
 import { Api } from '../../api/api'
 import { Registration } from '../../event/event'
 import { EndpointController } from '../../controller/controller'
-import { Serializable, SerializableList } from './serializable'
+import { Serializable } from './serializable'
 import { Proxy, ProxyExchangeEvent } from '../../proxy/proxy'
 import { Uuid } from '../../uuid/uuid'
 import { Http } from '../../protocol/protocol'
@@ -60,11 +60,6 @@ export class Controller extends EndpointController<Serializable>
 	public async handleOnDelete(serializable: Serializable) : Promise<boolean>
 	{
 		return undefined;
-	}
-
-	protected async handleOnList(serializables: Serializable[]) : Promise<SerializableList[]>
-	{
-		return serializables.map(serializable=>SerializableList.fromSerializable(serializable));
 	}
 
 	private handleOnExchange(event: ProxyExchangeEvent)

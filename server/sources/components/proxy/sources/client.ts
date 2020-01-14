@@ -63,13 +63,14 @@ export class Client
 			});
 
 			// write data to request body
-			req.write(request.rawBody.toString());
+			req.write(request.rawBody);
 			req.end();
 		})
 	}
 
 	private https(request: Http.Request) : Promise<Http.Response>
 	{
+		console.log(request);
 		return new Promise(resolve=>{
 			const headers : any = {};
 
@@ -121,7 +122,7 @@ export class Client
 			});
 
 			// write data to request body
-			req.write(request.rawBody.toString());
+			req.write(request.rawBody);
 			req.end();
 		})
 	}

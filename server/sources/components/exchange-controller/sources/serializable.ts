@@ -15,6 +15,8 @@ export class Serializable implements SerializableInterface
 	public serialize() : any {
 		return {
 			cached: this.cached,
+			url : `${this.exchange.request.protocol}://${this.exchange.request.hostname}${this.exchange.request.path}`,
+			method : this.exchange.request.method,
 		};
 	}
 
@@ -38,37 +40,3 @@ export class Serializable implements SerializableInterface
 		return serializable
 	}
 }
-
-
-export class SerializableList implements SerializableInterface
-{
-	public readonly uuid: Uuid = new Uuid();
-
-	public url: string = '';
-	public method: string = '';
-	public cached: boolean = true;
-
-	public serialize() : any {
-		return {
-			url: this.url,
-			method: this.method,
-			cached: this.cached,
-		};
-	}
-
-	public deserialize(data: any) : void {
-		this.url = data.url ?? this.url;
-		this.method = data.method ?? this.method;
-		this.cached = data.cached ?? this.cached;
-	}
-
-	public static fromSerializable(serializable: Serializable)
-	{
-		const result = new SerializableList();		
-		result.url = `${serializable.exchange.request.protocol}://${serializable.exchange.request.hostname}${serializable.exchange.request.path}`;
-		result.method = serializable.exchange.request.method;
-		result.cached = serializable.cached;
-		return result
-	}
-}
-

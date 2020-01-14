@@ -17,13 +17,5 @@ export class Application
 	}
 }
 
-console.log('[boot] init')
-let app: Application;
-window.onload = function()
-{
-	console.log('[boot] loaded')
-	app = new Application();
-	app.start();
-}
-
-//setInterval(()=>console.log(window.onload.toString()), 1000)
+let app: Application = new Application();
+app.start();
