@@ -30,9 +30,10 @@ class Bootstrap
 	changed()
 	{
 		return true;
-		const path = '/bootstraps/' + this.name + '/' + this.name;
+		const path = '/bootstraps/' + this.name;
+		const buildDir = this.buildDir ? this.buildDir :  builds + path;
 		try {
-			const builded = fs.readFileSync(builds + path + '.checksum').toString();
+			const builded = fs.readFileSync(builds + path + '/' + this.name + '.checksum').toString();
 			return builded !== this.checksum();
 		}
 		catch(e) {}
@@ -53,17 +54,19 @@ class Bootstrap
 	{
 		const path = '/bootstraps/' + this.name
 		const promises = [];
+		const buildDir = this.buildDir ? this.buildDir :  builds + path;
+
 		if(fileExist(sources + path + '/index.jade'))
 		{
 			promises.push(...jade.compileFile(
 					sources + path + '/index.jade',
-					builds + path,
+					buildDir,
 					{
 						env:{
 							paths: this.paths() 
 						},
 						onBuild : ()=>{ console.log('[build] jade:bootstrap/' + this.name) },
-						onEnd : ()=>{ fs.writeFileSync(builds + path + '/' + this.name + '.checksum', this.checksum()) }
+						onEnd : ()=>{ fs.writeFileSync(buildDir + '/' + this.name + '.checksum', this.checksum()) }
 					}
 				)
 			);
@@ -73,7 +76,7 @@ class Bootstrap
 		{
 			promises.push(...ts.compileFile(
 					sources + path + '/index.ts',
-					builds + path + '/index.js',
+					buildDir + '/index.js',
 					{
 						env:{
 							paths: this.paths() 
@@ -94,5 +97,11 @@ function all()
 	return fs.readdirSync(dir).map(path=>new Bootstrap(path));
 }
 
+function withName(name)
+{
+	return new Bootstrap(name);
+}
 
+
+exports.withName = withName
 exports.all = all

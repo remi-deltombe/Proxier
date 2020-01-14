@@ -7,6 +7,7 @@ const gap = require('gulp-append-prepend');
 const replace = require('gulp-replace');
 
 exports.compileFile = function(input, output, {
+	definition=true,
 	refs=[],
 	sourceRoot = undefined,
 	onBuild=()=>{},
@@ -16,7 +17,6 @@ exports.compileFile = function(input, output, {
 	const ouputParts = output.split('/')
 	const outputFileName = ouputParts.pop();
 	const outputDir = ouputParts.join('/');
-	
 	refs = refs.map(path=>`/// <reference path="${path}"/>`).join('\n') + ' ';
 	mkdir(outputDir);
 	let succeed = true;
@@ -35,17 +35,23 @@ exports.compileFile = function(input, output, {
         }))
         .on('error', e=>{ succeed = false; });
 
-    return [
-    	result
-    		.dts
-		    .pipe(replace('/// <reference path="../../builds/', '/// <reference path="../../'))
-    		.pipe(dest(outputDir)),
-    	result
+    const promises = [
+	    result
 	    	.js
 	    	.pipe(sourcemaps.write('.', {includeContent: false, sourceRoot}))
 	    	.pipe(dest(outputDir))
-    		.on('end', e=>{ if(succeed) { onEnd()} })
-    ]
+			.on('end', e=>{ if(succeed) { onEnd()} })
+	]
+	if(definition)
+	{
+		promises.push(
+	    	result
+	    		.dts
+			    .pipe(replace('/// <reference path="../../builds/', '/// <reference path="../../'))
+	    		.pipe(dest(outputDir))
+		)
+	}
+	return promises;
 }
 
 

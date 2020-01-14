@@ -3,6 +3,7 @@ const { root, sources, builds, checksum } = require('../helpers/filesystem')
 const ts = require('../compilers/typescript')
 const fs = require('fs');
 const glob = require("glob");
+const bootstrap = require("./bootstrap");
 
 class Component
 {
@@ -35,8 +36,8 @@ class Component
 	{
 		const files = [];
 	
-		files.push(...glob.sync(sources + '/components/' + this.name + '/**/*.ts'))
-		files.push(...glob.sync(sources + '/components/' + this.name + '/**/*.tsx'))
+		files.push(...glob.sync(sources + '/components/' + this.name + '/sources/**/*.ts'))
+		files.push(...glob.sync(sources + '/components/' + this.name + '/sources/**/*.tsx'))
 	
 		return files;
 	}
@@ -60,17 +61,36 @@ class Component
 	build()
 	{
 		const path = '/components/' + this.name ;
+		const hostBootstrap = bootstrap.withName('host');
 		
-		return ts.compileFile(
-			sources + path + '/'+this.name + '.ts',
-			builds + path  + '/'+this.name + '.js',
-			{
-				refs : this.dependencies().map(component=>component.definition()),
-				sourceRoot: 'sources/components',
-				onBuild : ()=>{ console.log('[build] ts:component/' + this.name) },
-				onEnd : ()=>{ fs.writeFileSync(builds + path + '/'+ this.name +'.checksum', this.checksum()) },
-			}
-		)
+		hostBootstrap.buildDir = builds + path + '/host';
+
+		return [
+			ts.compileFile(
+				sources + path + '/'+this.name + '.ts',
+				builds + path  + '/'+this.name + '.js',
+				{
+					refs : this.dependencies().map(component=>component.definition()),
+					sourceRoot: 'sources/components',
+					onBuild : ()=>{ console.log('[build] ts:component/' + this.name) },
+					onEnd : ()=>{ fs.writeFileSync(builds + path + '/'+ this.name +'.checksum', this.checksum()) },
+				}
+			),
+			ts.compileFile(
+				sources + path + '/host/index.tsx',
+				builds + path  + '/host/index.js',
+				{
+					definition:false,
+					refs : [
+						...this.dependencies().map(component=>'../' + component.definition()),
+						'../' + this.definition()
+					],
+					sourceRoot: 'sources/components',
+					onBuild : ()=>{ console.log('[build] ts:host/' + this.name) },
+					onEnd : ()=>{ fs.writeFileSync(builds + path + '/'+ this.name +'.checksum', this.checksum()) },
+				}
+			),
+		].concat(hostBootstrap.build())
 	}
 
 	dependencies()
