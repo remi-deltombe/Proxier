@@ -103,6 +103,7 @@ const root = (function(){
 	return parts.slice(0, parts.indexOf('tools')).join('/')
 })()
 
+exports.isDir = isDir; 
 exports.copy = copy; 
 exports.root = root;
 exports.sources = root  + '/sources';

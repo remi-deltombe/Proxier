@@ -1,14 +1,11 @@
 
 import * as React from 'react';
 
-export interface ButtonInterface
-{
-	text: string;
-	onClick?: ()=>void;
-}
+import { ButtonInterface } from './interfaces'
+import { style } from './styles'
 
 export function Button(config: ButtonInterface)
 {
-	return <button onClick={(config?.onClick ?? (()=>{}))}>{config.text}</button>
+	return <button css={style} onClick={(config?.onClick ?? (()=>{}))}>{config.text}</button>
 }
 

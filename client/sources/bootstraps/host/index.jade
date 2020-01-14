@@ -17,6 +17,7 @@ html(lang="en")
       each path, component in paths
         |"#{component}" : "../#{path}",
         | 
+      |    "@emotion/core": "../../../../node_modules/@emotion/core/dist/core.umd.min",
       |    "react": "../../../../node_modules/react/umd/react.development",
       |    "react-dom": "../../../../node_modules/react-dom/umd/react-dom.development",
       | }

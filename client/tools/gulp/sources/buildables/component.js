@@ -1,5 +1,5 @@
 
-const { root, sources, builds, checksum } = require('../helpers/filesystem')
+const { root, sources, builds, checksum, isDir } = require('../helpers/filesystem')
 const ts = require('../compilers/typescript')
 const fs = require('fs');
 const glob = require("glob");
@@ -61,11 +61,7 @@ class Component
 	build()
 	{
 		const path = '/components/' + this.name ;
-		const hostBootstrap = bootstrap.withName('host');
-		
-		hostBootstrap.buildDir = builds + path + '/host';
-
-		return [
+		const result = [
 			ts.compileFile(
 				sources + path + '/'+this.name + '.ts',
 				builds + path  + '/'+this.name + '.js',
@@ -75,22 +71,34 @@ class Component
 					onBuild : ()=>{ console.log('[build] ts:component/' + this.name) },
 					onEnd : ()=>{ fs.writeFileSync(builds + path + '/'+ this.name +'.checksum', this.checksum()) },
 				}
-			),
-			ts.compileFile(
-				sources + path + '/host/index.tsx',
-				builds + path  + '/host/index.js',
-				{
-					definition:false,
-					refs : [
-						...this.dependencies().map(component=>'../' + component.definition()),
-						'../' + this.definition()
-					],
-					sourceRoot: 'sources/components',
-					onBuild : ()=>{ console.log('[build] ts:host/' + this.name) },
-					onEnd : ()=>{ fs.writeFileSync(builds + path + '/'+ this.name +'.checksum', this.checksum()) },
-				}
-			),
-		].concat(hostBootstrap.build())
+			)
+		]
+
+		const hasHost = isDir(sources + path + '/host')
+		if(hasHost)
+		{
+			const hostBootstrap = bootstrap.withName('host');
+			hostBootstrap.buildDir = builds + path + '/host';
+			result.push(
+				...hostBootstrap.build(),
+				ts.compileFile(
+					sources + path + '/host/index.tsx',
+					builds + path  + '/host/index.js',
+					{
+						definition:false,
+						refs : [
+							...this.dependencies().map(component=>'../' + component.definition()),
+							'../' + this.definition()
+						],
+						sourceRoot: 'sources/components',
+						onBuild : ()=>{ console.log('[build] ts:host/' + this.name) },
+						onEnd : ()=>{ fs.writeFileSync(builds + path + '/'+ this.name +'.checksum', this.checksum()) },
+					}
+				)
+			)
+		}
+
+		return result;
 	}
 
 	dependencies()
