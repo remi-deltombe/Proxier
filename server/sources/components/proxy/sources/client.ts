@@ -63,7 +63,7 @@ export class Client
 			});
 
 			// write data to request body
-			req.write(request.rawBody);
+			req.write(request.rawBody.toString());
 			req.end();
 		})
 	}
@@ -72,7 +72,8 @@ export class Client
 	{
 		return new Promise(resolve=>{
 			const headers : any = {};
-			const bannedHeader : string[] = ['host', 'accept-encoding', 'referer']
+
+			const bannedHeader : string[] = ['accept-encoding']
 
 			for(const header of request.header)
 			{
@@ -120,7 +121,7 @@ export class Client
 			});
 
 			// write data to request body
-			req.write(request.rawBody);
+			req.write(request.rawBody.toString());
 			req.end();
 		})
 	}
