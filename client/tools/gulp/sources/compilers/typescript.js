@@ -23,8 +23,6 @@ exports.compileFile = function(input, output, {
     const result = src(input)
 		.pipe(sourcemaps.init())
 		.pipe(gap.prependText(refs))
-		.pipe(gap.prependText(`/** @jsx jsx */
-import { jsx } from '@emotion/core'`))
     	.on('end', e=>{ onBuild() })
         .pipe(ts({
         	module: "amd",

@@ -1,3 +1,5 @@
+/** @jsx jsx */
+import { jsx } from '@emotion/core'
 
 import * as React from 'react';
 
@@ -8,4 +10,3 @@ export function Button(config: ButtonInterface)
 {
 	return <button css={style} onClick={(config?.onClick ?? (()=>{}))}>{config.text}</button>
 }
-

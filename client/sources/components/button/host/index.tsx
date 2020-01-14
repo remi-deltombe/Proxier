@@ -6,7 +6,7 @@ import { Button } from 'button'
 
 ReactDOM.render(
 	<div>
-		<Button text="test"/>
+		<Button text="test" onClick={()=>console.log('onClick')}/>
 	</div>, 
 	document.getElementById('APP')
 );
