@@ -12,9 +12,9 @@ export class Application {
     private api: Api;
     private controllers: Controller[];
 
-    public start() {
+    public start(clientPath: string) {
         this.socketserver = new SocketServer();
-        this.webserver = new WebServer();
+        this.webserver = new WebServer(clientPath);
         this.api = new Api(this.socketserver);
 
         this.webserver.listen(8080);
@@ -27,24 +27,3 @@ export class Application {
         }
     }
 }
-
-/*
-import { Proxy } from '../../components/proxy/proxy';
-import { WebServer } from '../../components/web-server/web-server';
-import { SocketServer } from '../../components/socket-server/socket-server';
-import { Api } from '../../components/api/api';
-
-const socketserver = new SocketServer();
-const webserver = new WebServer();
-const api = new Api(socketserver);
-
-webserver.listen(8080);
-socketserver.listen(webserver);
-
-api.endpoint(Proxy).onCreate.subscribe(proxy=>{
-	console.log('Proxy created');
-	proxy.start();
-	return proxy;
-})
-
-*/

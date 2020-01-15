@@ -6,6 +6,11 @@ import { Express } from "express";
 export class WebServer {
     private app: Express;
     private server: http.Server;
+    private clientPath: string = "./../client/";
+
+    constructor(clientPath: string) {
+        this.clientPath = clientPath;
+    }
 
     public get port(): number {
         return (this.http.address() as any).port;
@@ -22,7 +27,7 @@ export class WebServer {
     public async listen(port: number = 0): Promise<boolean> {
         return new Promise(resolve => {
             this.app = express();
-            this.app.use(express.static("./../client/"));
+            this.app.use(express.static(this.clientPath));
             this.server = this.app.listen(port, "127.0.0.1", () => {
                 console.log(
                     `Webserver listening on ${
