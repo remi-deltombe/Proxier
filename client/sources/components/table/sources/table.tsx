@@ -1,9 +1,13 @@
+/** @jsx jsx */
+import { jsx } from "@emotion/core";
+
 import * as React from "react";
 import {
     TableRowItemInterface,
     TableRowInterface,
     TableInterface
 } from "./interfaces";
+import { style } from "./styles";
 
 export function TableRowItem(config: TableRowItemInterface) {
     return (
@@ -45,7 +49,7 @@ export function TableHeader(config: TableRowInterface) {
 
 export function Table(config: TableInterface) {
     return (
-        <table>
+        <table css={style}>
             <thead>
                 {config.headers.map((header, i) => (
                     <TableHeader key={i} {...header} />
