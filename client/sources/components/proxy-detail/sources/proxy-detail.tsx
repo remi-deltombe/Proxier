@@ -34,7 +34,13 @@ export function ProxyDetail(config: ProxyDetailInterface) {
         .map(exchangeToRow);
 
     function buildRegExp(input: string): RegExp {
-        return new RegExp(input.length ? input.split("*").join(".*") : ".*");
+        try {
+            return new RegExp(
+                input.length ? input.split("*").join(".*") : ".*"
+            );
+        } catch (e) {
+            return new RegExp(".*");
+        }
     }
 
     function exchangeToRow(exchange: Exchange): ProxyDetailTableRowInterface {
