@@ -9,6 +9,7 @@ const ts = require("../compilers/typescript");
 const fs = require("fs");
 const glob = require("glob");
 const bootstrap = require("./bootstrap");
+const replace = require("gulp-replace");
 
 class Component {
 	constructor(name) {
@@ -56,6 +57,11 @@ class Component {
 
 	checksum() {
 		return this.files()
+			.concat(
+				glob.sync(
+					sources + "/components/" + this.name + "/host/**/*.tsx"
+				)
+			)
 			.map(file => checksum(file))
 			.join(":");
 	}
@@ -78,6 +84,7 @@ class Component {
 				sources + path + "/" + this.name + ".ts",
 				builds + path + "/" + this.name + ".js",
 				{
+					pipes: [replace("sources/", this.name + "/sources/")],
 					refs: this.dependencies().map(component =>
 						component.definition()
 					),
@@ -105,6 +112,7 @@ class Component {
 					sources + path + "/host/index.tsx",
 					builds + path + "/host/index.js",
 					{
+						pipes: [replace("sources/", this.name + "/sources/")],
 						definition: false,
 						refs: [
 							...this.dependencies().map(
@@ -126,8 +134,6 @@ class Component {
 				)
 			);
 		}
-
-		return result;
 	}
 
 	dependencies() {
