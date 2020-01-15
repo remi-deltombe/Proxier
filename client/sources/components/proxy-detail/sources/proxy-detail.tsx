@@ -11,7 +11,7 @@ import { Proxy, Exchange } from "proxy";
 export interface ProxyDetailInterface {
     proxy: Proxy;
     exchanges: Exchange[];
-    onExchangeChange?: (exchange:Exchange) => void;
+    onExchangeChange?: (exchange: Exchange) => void;
 }
 
 interface ProxyDetailTableRowInterface extends TableRowInterface {
@@ -19,7 +19,7 @@ interface ProxyDetailTableRowInterface extends TableRowInterface {
 }
 
 export function ProxyDetail(config: ProxyDetailInterface) {
-    const { proxy, exchanges, onExchangeChange=()=>{} } = config;
+    const { proxy, exchanges, onExchangeChange = () => {} } = config;
 
     const link = `http://${proxy.hostname}:${proxy.port}`;
     const rows = exchanges.map(exchangeToRow);
@@ -65,7 +65,9 @@ export function ProxyDetail(config: ProxyDetailInterface) {
                                             onClick={() =>
                                                 rows.forEach(row => {
                                                     row.exchange.cached = true;
-                                                    onExchangeChange(exchange);
+                                                    onExchangeChange(
+                                                        row.exchange
+                                                    );
                                                 })
                                             }
                                         />
@@ -74,7 +76,9 @@ export function ProxyDetail(config: ProxyDetailInterface) {
                                             onClick={() =>
                                                 rows.forEach(row => {
                                                     row.exchange.cached = false;
-                                                    onExchangeChange(exchange);
+                                                    onExchangeChange(
+                                                        row.exchange
+                                                    );
                                                 })
                                             }
                                         />

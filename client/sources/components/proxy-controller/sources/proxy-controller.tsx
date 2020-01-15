@@ -4,7 +4,7 @@ import { Api, Endpoint } from "api";
 import { ProxyCreate } from "proxy-create";
 import { ProxyList } from "proxy-list";
 import { ProxyDetail } from "proxy-detail";
-import { Proxy } from "proxy";
+import { Proxy, Exchange } from "proxy";
 
 export interface ProxyControllerInterface {
     api: Api;
@@ -16,7 +16,7 @@ export function ProxyController(config: ProxyControllerInterface): JSX.Element {
         undefined
     );
     const [exchangeEndpoint, setExchangeEndpoint] = React.useState<
-        Endpoint<Proxy>
+        Endpoint<Exchange>
     >(undefined);
 
     const [proxy, setProxy] = React.useState(undefined);
@@ -97,7 +97,15 @@ export function ProxyController(config: ProxyControllerInterface): JSX.Element {
                 onClick={proxy => setProxy(proxy)}
                 onAdd={() => setProxy(undefined)}
             />
-            {proxy && <ProxyDetail proxy={proxy} exchanges={exchanges} onExchangeChange={exchange=>exchangeEndpoint.update(exchange)}/>}
+            {proxy && (
+                <ProxyDetail
+                    proxy={proxy}
+                    exchanges={exchanges}
+                    onExchangeChange={exchange =>
+                        exchangeEndpoint.update(exchange)
+                    }
+                />
+            )}
             {!proxy && <ProxyCreate onCreate={handleOnCreate} />}
         </>
     );
