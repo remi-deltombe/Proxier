@@ -32,7 +32,7 @@ function all()
 		const dir = sources + '/electrons';
 		return fs.readdirSync(dir).map(path=>new Electron(path));
 	}
-	catch
+	catch(e)
 	{
 		return []
 	}

@@ -26,7 +26,7 @@ exports.command = function(){
 			.map(electron=>electron.build())
 	);
 	
-	return Promise.all(streams.flat());
+	return Promise.all(streams);
 }
 
 /**
