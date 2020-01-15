@@ -1,126 +1,127 @@
+ 
+import { Http } from "../../protocol/protocol";
+import * as https from "https";
+import * as http from "http";
 
-import { Http } from '../../protocol/protocol'
-import * as https from 'https';
-import * as http from 'http';
+export class Client {
+    public send(request: Http.Request): Promise<Http.Response> {
+        return request.protocol == "http"
+            ? this.http(request)
+            : this.https(request);
+    }
 
-export class Client
-{
-	public send(request: Http.Request) : Promise<Http.Response>
-	{
-		return request.protocol === 'https' ? this.https(request) : this.http(request);
-	}
+    private http(request: Http.Request): Promise<Http.Response> {
+        return new Promise(resolve => {
+            const headers: any = {};
+            const bannedHeader: string[] = [
+                "host",
+                "accept-encoding",
+                "referer"
+            ];
 
-	private http(request: Http.Request) : Promise<Http.Response>
-	{
-		return new Promise(resolve=>{
-			const headers : any = {};
-			const bannedHeader : string[] = ['host', 'accept-encoding', 'referer']
+            for (const header of request.header) {
+                if (!bannedHeader.includes(header[0])) {
+                    headers[header[0]] = header[1];
+                }
+            }
 
-			for(const header of request.header)
-			{
-				if(!bannedHeader.includes(header[0]))
-				{
-					//headers[header[0]] = header[1];
-				}
-			}
-			const req = http.request({
-			    hostname: request.hostname,
-			    port: request.port,
-			    path: request.path,
-			    method: request.method,
-			    headers: headers
-			}, function (res) {
+            const req = http.request(
+                {
+                    hostname: request.hostname,
+                    port: request.port,
+                    path: request.path,
+                    method: request.method,
+                    headers: headers
+                },
+                function(res) {
+                    const response = new Http.Response();
+                    response.code = res.statusCode;
 
-				const response = new Http.Response();
-				response.code = res.statusCode;
+                    for (let i in res.headers) {
+                        if (Array.isArray(res.headers[i])) {
+                            response.header.set(
+                                i,
+                                (res.headers[i] as string[]).join(",")
+                            );
+                        } else {
+                            response.header.set(i, res.headers[i] as string);
+                        }
+                    }
 
-				for(let i in res.headers)
-				{
-					if(Array.isArray(res.headers[i]))
-					{
-						response.header.set(i, (res.headers[i] as string[]).join(','));
-					}
-					else
-					{
-						response.header.set(i, res.headers[i] as string);
-					}
-				}
+                    const buffer: any = [];
+                    res.on("data", chunk => {
+                        buffer.push(chunk);
+                    });
 
-				const buffer : any = [];
-				res.on('data',  (chunk) => {
-					buffer.push(chunk);
-				});
+                    res.on("end", () => {
+                        response.rawBody = Buffer.concat(buffer);
+                        if (!response.isBinary()) {
+                            response.body = response.rawBody.toString();
+                        }
+                        resolve(response);
+                    });
+                }
+            );
 
-				res.on('end',() => {
-			        response.rawBody = Buffer.concat(buffer);
-			        if(!response.isBinary())
-			        {
-						response.body = response.rawBody.toString();			        	
-			        }
-					resolve(response)
-				});
-			});
+            // write data to request body
+            req.write(request.rawBody);
+            req.end();
+        });
+    }
 
-			// write data to request body
-			req.write('');
-			req.end();
-		})
-	}
+    private https(request: Http.Request): Promise<Http.Response> {
+        console.log(request);
+        return new Promise(resolve => {
+            const headers: any = {};
 
-	private https(request: Http.Request) : Promise<Http.Response>
-	{
-		return new Promise(resolve=>{
-			const headers : any = {};
-			const bannedHeader : string[] = ['host', 'accept-encoding', 'referer']
+            const bannedHeader: string[] = ["accept-encoding"];
 
-			for(const header of request.header)
-			{
-				if(!bannedHeader.includes(header[0]))
-				{
-					//headers[header[0]] = header[1];
-				}
-			}
-			const req = https.request({
-			    hostname: request.hostname,
-			    port: request.port,
-			    path: request.path,
-			    method: request.method,
-			    headers: headers
-			}, function (res) {
+            for (const header of request.header) {
+                if (!bannedHeader.includes(header[0])) {
+                    headers[header[0]] = header[1];
+                }
+            }
+            const req = https.request(
+                {
+                    hostname: request.hostname,
+                    port: request.port,
+                    path: request.path,
+                    method: request.method,
+                    headers: headers
+                },
+                function(res) {
+                    const response = new Http.Response();
+                    response.code = res.statusCode;
 
-				const response = new Http.Response();
-				response.code = res.statusCode;
+                    for (let i in res.headers) {
+                        if (Array.isArray(res.headers[i])) {
+                            response.header.set(
+                                i,
+                                (res.headers[i] as string[]).join(",")
+                            );
+                        } else {
+                            response.header.set(i, res.headers[i] as string);
+                        }
+                    }
 
-				for(let i in res.headers)
-				{
-					if(Array.isArray(res.headers[i]))
-					{
-						response.header.set(i, (res.headers[i] as string[]).join(','));
-					}
-					else
-					{
-						response.header.set(i, res.headers[i] as string);
-					}
-				}
+                    const buffer: any = [];
+                    res.on("data", chunk => {
+                        buffer.push(chunk);
+                    });
 
-				const buffer : any = [];
-				res.on('data',  (chunk) => {
-					buffer.push(chunk);
-				});
+                    res.on("end", () => {
+                        response.rawBody = Buffer.concat(buffer);
+                        if (!response.isBinary()) {
+                            response.body = response.rawBody.toString();
+                        }
+                        resolve(response);
+                    });
+                }
+            );
 
-				res.on('end',() => {
-			        response.rawBody = Buffer.concat(buffer);
-			        if(!response.isBinary())
-			        {
-						response.body = response.rawBody.toString();			        	
-			        }
-					resolve(response)
-				});
-			});
-
-			// write data to request body
-			req.write('');
-			req.end();
-		})
-	}
+            // write data to request body
+            req.write(request.rawBody);
+            req.end();
+        });
+    }
 }

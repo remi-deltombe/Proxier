@@ -36,6 +36,6 @@ export class Cache {
     }
 
     private hash(request: Http.Request): string {
-        return `${request.method}|${request.path}`;
+        return `${request.method}|${request.path}|${request.rawBody.toString()}`;
     }
 }
