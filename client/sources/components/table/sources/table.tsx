@@ -2,6 +2,7 @@
 import { jsx } from "@emotion/core";
 
 import * as React from "react";
+import { InputText } from "input-text";
 import {
     TableRowItemInterface,
     TableRowInterface,
@@ -52,13 +53,13 @@ export function Table(config: TableInterface) {
     return (
         <table css={style}>
             <thead>
-                {config.headers.map((header, i) => (
-                    <TableHeader key={i} {...header} />
+                {config.headers.map(header => (
+                    <TableHeader key={header.key} {...header} />
                 ))}
             </thead>
             <tbody>
-                {config.rows.map((row, i) => (
-                    <TableRow key={i} {...row} />
+                {config.rows.map(row => (
+                    <TableRow key={row.key} {...row} />
                 ))}
             </tbody>
         </table>

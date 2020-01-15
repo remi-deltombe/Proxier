@@ -1,7 +1,7 @@
 import * as React from "react";
 
 import { Registration } from "event";
-import { Button } from "button";
+import { Button, ButtonColor } from "button";
 import { InputText } from "input-text";
 import { Table, TableRowInterface } from "table";
 import { Link } from "link";
@@ -21,12 +21,22 @@ interface ProxyDetailTableRowInterface extends TableRowInterface {
 export function ProxyDetail(config: ProxyDetailInterface) {
     const { proxy, exchanges, onExchangeChange = () => {} } = config;
 
+    const [filterMethod, setFilterMethod] = React.useState<string>("");
+    const [filterRequest, setFilterRequest] = React.useState<string>("");
+
     const link = `http://${proxy.hostname}:${proxy.port}`;
-    const rows = exchanges.map(exchangeToRow);
+    const rows = exchanges
+        .filter(
+            exchange =>
+                exchange.method.includes(filterMethod) &&
+                exchange.url.includes(filterRequest)
+        )
+        .map(exchangeToRow);
 
     function exchangeToRow(exchange: Exchange): ProxyDetailTableRowInterface {
         return {
             exchange,
+            key: exchange.uuid,
             items: [
                 { text: exchange.method },
                 {
@@ -40,13 +50,26 @@ export function ProxyDetail(config: ProxyDetailInterface) {
                 },
                 {
                     element: (
-                        <Button
-                            text={exchange.cached ? "Disable" : "Enable"}
-                            onClick={() => {
-                                exchange.cached = !exchange.cached;
-                                onExchangeChange(exchange);
-                            }}
-                        />
+                        <>
+                            <Button
+                                text={"Cache"}
+                                onClick={() => {
+                                    window.open(exchange.url, "_blank");
+                                }}
+                            />
+                            <Button
+                                text={exchange.cached ? "Disable" : "Enable"}
+                                color={
+                                    exchange.cached
+                                        ? ButtonColor.GREEN
+                                        : ButtonColor.RED
+                                }
+                                onClick={() => {
+                                    exchange.cached = !exchange.cached;
+                                    onExchangeChange(exchange);
+                                }}
+                            />
+                        </>
                     )
                 }
             ]
@@ -62,15 +85,37 @@ export function ProxyDetail(config: ProxyDetailInterface) {
             <Table
                 headers={[
                     {
+                        key: "titles",
                         items: [
                             { text: "Method", width: "1px" },
                             { text: "Request" },
+                            { text: "Cache", width: "200px" }
+                        ]
+                    },
+                    {
+                        key: "filters",
+                        items: [
                             {
-                                width: "200px",
+                                element: (
+                                    <InputText
+                                        value={filterMethod}
+                                        onChange={v => setFilterMethod(v)}
+                                    />
+                                )
+                            },
+                            {
+                                element: (
+                                    <InputText
+                                        value={filterRequest}
+                                        onChange={v => setFilterRequest(v)}
+                                    />
+                                )
+                            },
+                            {
                                 element: (
                                     <>
                                         <Button
-                                            text="Enable all"
+                                            text="Enable"
                                             onClick={() =>
                                                 rows.forEach(row => {
                                                     row.exchange.cached = true;
@@ -81,7 +126,7 @@ export function ProxyDetail(config: ProxyDetailInterface) {
                                             }
                                         />
                                         <Button
-                                            text="Disable all"
+                                            text="Disable"
                                             onClick={() =>
                                                 rows.forEach(row => {
                                                     row.exchange.cached = false;

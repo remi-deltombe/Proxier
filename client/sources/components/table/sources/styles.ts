@@ -10,6 +10,7 @@ export const style = css`
     text-align: left;
     border-collapse: collapse;
     border: none;
+    word-break: break-all;
 
     th,
     td {

@@ -10,10 +10,12 @@ export interface TableHeaderItemInterface extends TableRowItemInterface {
 }
 
 export interface TableRowInterface {
+	key: string;
 	items?: TableRowItemInterface[];
 }
 
 export interface TableHeaderInterface {
+	key: string;
 	items?: TableHeaderItemInterface[];
 }
 

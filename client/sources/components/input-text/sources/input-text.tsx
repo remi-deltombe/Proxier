@@ -1,15 +1,14 @@
+/** @jsx jsx */
+import { jsx } from "@emotion/core";
 import * as React from "react";
 
-export interface InputTextInterface {
-    label: string;
-    value: string;
-    onChange?: (value: string) => void;
-}
+import { InputTextInterface } from "./interfaces";
+import { style } from "./styles";
 
 export function InputText(config: InputTextInterface) {
     return (
-        <label>
-            {config.label}
+        <label css={style}>
+            {config.label && <div className="label">{config.label}</div>}
             <input
                 type="text"
                 value={config.value}

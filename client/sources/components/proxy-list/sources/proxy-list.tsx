@@ -15,7 +15,13 @@ export function ProxyList(config: ProxyListInterface): JSX.Element {
     const { proxies, onClick, onAdd } = config;
 
     function renderItem(proxy: Proxy): JSX.Element {
-        return <Button onClick={() => onClick(proxy)} text={proxy.url} />;
+        return (
+            <Button
+                key={proxy.uuid}
+                onClick={() => onClick(proxy)}
+                text={proxy.url}
+            />
+        );
     }
 
     function renderAddButton(): JSX.Element {
