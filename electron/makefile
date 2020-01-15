@@ -14,4 +14,4 @@ run:
 	electron --disable-gpu .
 
 release:
-	electron-builder 
+	electron-builder -l AppImage
