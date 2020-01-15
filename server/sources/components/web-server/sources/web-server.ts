@@ -1,5 +1,6 @@
 import * as express from "express";
 import * as http from "http";
+import * as opn from "opn";
 import { Express } from "express";
 
 export class WebServer {
@@ -30,6 +31,7 @@ export class WebServer {
                         (this.server.address() as any).port
                     }`
                 );
+                opn('http://localhost:'+ (this.server.address() as any).port + '/builds/bootstraps/client/index.html')
                 resolve(true);
             });
         });
