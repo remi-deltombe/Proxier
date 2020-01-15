@@ -5,6 +5,7 @@ import * as React from "react";
 import {
     TableRowItemInterface,
     TableRowInterface,
+    TableHeaderItemInterface,
     TableInterface
 } from "./interfaces";
 import { style } from "./styles";
@@ -28,9 +29,9 @@ export function TableRow(config: TableRowInterface) {
     );
 }
 
-export function TableHeaderItem(config: TableRowItemInterface) {
+export function TableHeaderItem(config: TableHeaderItemInterface) {
     return (
-        <th>
+        <th {...config}>
             {config.text}
             {config.element}
         </th>

@@ -30,7 +30,7 @@ ReactDOM.render(
 				{
 					items: [
 						{ element: <Component text="button 1" /> },
-						{ text: "item 1" },
+						{ text: "item 1", width: "100%" },
 						{ text: "item 2" },
 						{ text: "item 3" },
 						{ element: <Component text="button 2" /> }
