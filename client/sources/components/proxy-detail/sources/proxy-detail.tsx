@@ -25,13 +25,17 @@ export function ProxyDetail(config: ProxyDetailInterface) {
     const [filterRequest, setFilterRequest] = React.useState<string>("");
 
     const link = `http://${proxy.hostname}:${proxy.port}`;
+    const regexp = [buildRegExp(filterMethod), buildRegExp(filterRequest)];
     const rows = exchanges
         .filter(
             exchange =>
-                exchange.method.includes(filterMethod) &&
-                exchange.url.includes(filterRequest)
+                regexp[0].test(exchange.method) && regexp[1].test(exchange.url)
         )
         .map(exchangeToRow);
+
+    function buildRegExp(input: string): RegExp {
+        return new RegExp(input.length ? input.split("*").join(".*") : ".*");
+    }
 
     function exchangeToRow(exchange: Exchange): ProxyDetailTableRowInterface {
         return {
