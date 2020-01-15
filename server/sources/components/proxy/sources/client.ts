@@ -1,4 +1,3 @@
- 
 import { Http } from "../../protocol/protocol";
 import * as https from "https";
 import * as http from "http";
@@ -70,7 +69,6 @@ export class Client {
     }
 
     private https(request: Http.Request): Promise<Http.Response> {
-        console.log(request);
         return new Promise(resolve => {
             const headers: any = {};
 

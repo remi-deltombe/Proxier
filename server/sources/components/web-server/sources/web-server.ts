@@ -23,7 +23,7 @@ export class WebServer {
         return new Promise(resolve => {
             this.app = express();
             this.app.use(express.static("./../client/"));
-            this.server = this.app.listen(port, () => {
+            this.server = this.app.listen(port, "127.0.0.1", () => {
                 console.log(
                     `Webserver listening on ${
                         (this.server.address() as any).port

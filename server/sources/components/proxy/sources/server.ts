@@ -40,10 +40,11 @@ export class Server {
 
             this.app.all("*", async (req, res) => {
                 const request = new Http.Request();
+                request.hostname =
+                    req.headers?.host?.split(":")[0] ?? request.hostname;
                 request.method = req.method;
                 request.path = req.url;
                 request.rawBody = req.body;
-
                 for (const i in req.headers) {
                     if (Array.isArray(req.headers[i])) {
                         request.header.set(
