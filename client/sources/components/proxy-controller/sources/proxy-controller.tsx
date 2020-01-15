@@ -97,7 +97,7 @@ export function ProxyController(config: ProxyControllerInterface): JSX.Element {
                 onClick={proxy => setProxy(proxy)}
                 onAdd={() => setProxy(undefined)}
             />
-            {proxy && <ProxyDetail proxy={proxy} exchanges={exchanges} />}
+            {proxy && <ProxyDetail proxy={proxy} exchanges={exchanges} onExchangeChange={exchange=>exchangeEndpoint.update(exchange)}/>}
             {!proxy && <ProxyCreate onCreate={handleOnCreate} />}
         </>
     );
