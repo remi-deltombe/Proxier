@@ -1,15 +1,15 @@
+/** @jsx jsx */
+import { jsx } from "@emotion/core";
+
 import * as React from "react";
 
-export interface LinkInterface {
-    text: string;
-    link: string;
-    blank?: boolean;
-}
+import { LinkInterface } from "./interfaces";
+import { style } from "./styles";
 
 export function Link(config: LinkInterface) {
-    return (
-        <a href={config.link} target={config.blank ? "_blank" : ""}>
-            {config.text}
-        </a>
-    );
+	return (
+		<a css={style} href={config.link} target={config.blank ? "_blank" : ""}>
+			{config.text}
+		</a>
+	);
 }
