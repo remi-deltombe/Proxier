@@ -3,7 +3,7 @@ import { fonts, colors } from "constants";
 
 export const style = css`
     width: 100%;
-    font-familly: ${fonts.normal};
+    font-family: ${fonts.normal};
     font-size: 14px;
     line-height: 16px;
     color: ${colors.grey3};
@@ -18,7 +18,7 @@ export const style = css`
 
     th {
         color: ${colors.grey1};
-        border-bottom: 3px solid ${colors.grey9};asc
+        border-bottom: 3px solid ${colors.grey9};
     }
 
     td {

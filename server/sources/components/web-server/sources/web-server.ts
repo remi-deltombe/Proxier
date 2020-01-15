@@ -7,8 +7,6 @@ export class WebServer {
     private app: Express;
     private server: http.Server;
 
-    public socketInfo: any = {};
-
     public get port(): number {
         return (this.http.address() as any).port;
     }

@@ -4,7 +4,7 @@ import { fonts, colors } from "constants";
 export const style = css`
 	font-size: 14px;
 	line-height: 16px;
-	font-familly: ${fonts.normal};
+	font-family: ${fonts.normal};
 	color: ${colors.primary5};
 	transition: 0.15s;
 	cursor: pointer;

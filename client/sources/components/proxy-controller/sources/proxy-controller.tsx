@@ -97,6 +97,9 @@ export function ProxyController(config: ProxyControllerInterface): JSX.Element {
                 onClick={proxy => setProxy(proxy)}
                 onAdd={() => setProxy(undefined)}
             />
+            <br />
+            <hr />
+            <br />
             {proxy && (
                 <ProxyDetail
                     proxy={proxy}

@@ -9,7 +9,7 @@ export const style = css`
 	margin-right: 6px;
 	font-familly: ${fonts.normal};
 	color: ${colors.grey2};
-	background: ${colors.grey9};
+	background: ${colors.grey8};
 	border: 0;
 	transition: 0.15s;
 	cursor: pointer;

@@ -29,7 +29,15 @@ export function ProxyDetail(config: ProxyDetailInterface) {
             exchange,
             items: [
                 { text: exchange.method },
-                { text: exchange.url },
+                {
+                    element: (
+                        <Link
+                            text={exchange.url}
+                            link={exchange.url}
+                            blank={true}
+                        />
+                    )
+                },
                 {
                     element: (
                         <Button
@@ -55,9 +63,10 @@ export function ProxyDetail(config: ProxyDetailInterface) {
                 headers={[
                     {
                         items: [
-                            { text: "Method" },
+                            { text: "Method", width: "1px" },
                             { text: "Request" },
                             {
+                                width: "200px",
                                 element: (
                                     <>
                                         <Button
