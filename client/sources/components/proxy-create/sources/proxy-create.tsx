@@ -10,7 +10,7 @@ export interface ProxyCreateInterface {
 
 export function ProxyCreate(config: ProxyCreateInterface): JSX.Element {
     const { onCreate } = config;
-    const [url, setUrl] = React.useState<string>("https://hitek.fr");
+    const [url, setUrl] = React.useState<string>("http://");
 
     return (
         <>
