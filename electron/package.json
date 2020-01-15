@@ -9,6 +9,12 @@
 	"author": "",
 	"license": "GPL",
 	"dependencies": {
+		"express": "^4.17.1",
+		"https": "^1.0.0",
+		"open": "^7.0.0",
+		"socket.io": "^2.3.0"
+	},
+	"devDependencies": {
 		"electron": "^7.1.9"
 	}
 }

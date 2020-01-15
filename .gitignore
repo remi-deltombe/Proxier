@@ -4,3 +4,4 @@ server/builds
 client/builds
 electron/server
 electron/client
+electron/dist
