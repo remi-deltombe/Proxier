@@ -1,14 +1,13 @@
 import * as express from "express";
 import * as http from "http";
-import * as open from "open";
 import { Express } from "express";
 
 export class WebServer {
     private app: Express;
     private server: http.Server;
-    private clientPath: string = "./../client/";
+    private clientPath: string;
 
-    constructor(clientPath: string) {
+    constructor(clientPath: string = "./../client/") {
         this.clientPath = clientPath;
     }
 
@@ -33,11 +32,6 @@ export class WebServer {
                     `Webserver listening on ${
                         (this.server.address() as any).port
                     }`
-                );
-                open(
-                    "http://localhost:" +
-                        (this.server.address() as any).port +
-                        "/builds/bootstraps/client/index.html"
                 );
                 resolve(true);
             });
