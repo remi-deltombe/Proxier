@@ -16,5 +16,25 @@
 	},
 	"devDependencies": {
 		"electron": "^7.1.9"
+	},
+	"build": {
+		"appId": "proxier.app",
+		"files": [
+			"index.js",
+			"sources/server/**/*",
+			"node_modules/**/*"
+		],
+		"extraResources": [
+			{
+				"from": "./sources/client",
+				"to": "extraResources",
+				"filter": [
+					"**/*"
+				]
+			}
+		],
+		"directories": {
+			"buildResources": "sources/client/**/*"
+		}
 	}
 }

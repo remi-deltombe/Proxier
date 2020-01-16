@@ -1,11 +1,12 @@
+const fs = require("fs");
 const { app, BrowserWindow } = require("electron");
 const {
 	Application
-} = require("./server/builds/components/application/application");
+} = require("./sources/server/builds/components/application/application");
 
 async function createServer() {
 	const application = new Application();
-	application.start("./client");
+	application.start(__dirname + "/../extraResources");
 	return application;
 }
 

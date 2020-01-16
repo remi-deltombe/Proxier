@@ -1,13 +1,13 @@
 
 build:
-	@rm -rf ./server
-	@rm -rf ./client
-	mkdir ./server
-	mkdir ./client
+	@rm -rf ./sources
+	mkdir ./sources
+	mkdir ./sources/server
+	mkdir ./sources/client
 	cp -r ./../server/node_modules/* ./node_modules/
-	cp -r ./../server/builds ./server/builds
-	cp -r ./../client/builds ./client/builds
-	cp -r ./../client/node_modules ./client/node_modules
+	cp -r ./../server/builds ./sources/server/builds
+	cp -r ./../client/builds ./sources/client/builds
+	cp -r ./../client/node_modules ./sources/client/node_modules
 	electron --disable-gpu .
 
 run:

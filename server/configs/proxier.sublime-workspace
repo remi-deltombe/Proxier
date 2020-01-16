@@ -419,7 +419,7 @@
 			"file": "/home/remi/Projects/Proxier/server/sources/components/web-server/sources/web-server.ts",
 			"settings":
 			{
-				"buffer_size": 1129,
+				"buffer_size": 1367,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -482,7 +482,7 @@
 			"file": "/home/remi/Projects/Proxier/server/package-lock.json",
 			"settings":
 			{
-				"buffer_size": 73055,
+				"buffer_size": 69775,
 				"line_ending": "Unix"
 			}
 		},
@@ -499,7 +499,7 @@
 			"file": "/home/remi/Projects/Proxier/server/package.json",
 			"settings":
 			{
-				"buffer_size": 810,
+				"buffer_size": 832,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -1064,15 +1064,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1129,
+						"buffer_size": 1367,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								216,
-								216
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1318,7 +1318,7 @@
 					"semi_transient": true,
 					"settings":
 					{
-						"buffer_size": 73055,
+						"buffer_size": 69775,
 						"regions":
 						{
 						},
@@ -1381,15 +1381,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 810,
+						"buffer_size": 832,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								711,
-								711
+								0,
+								0
 							]
 						],
 						"settings":

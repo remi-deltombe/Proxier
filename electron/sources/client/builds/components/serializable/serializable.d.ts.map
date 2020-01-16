@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../sources/components/serializable/sources/serializable.ts","../../sources/components/serializable/serializable.ts"],"names":[],"mappings":";IAAA,MAAM,WAAW,YAAY;QACzB,IAAI,EAAE,MAAM,CAAC;QACb,SAAS,IAAI,GAAG,CAAC;QACjB,WAAW,CAAC,IAAI,EAAE,GAAG,GAAG,IAAI,CAAC;KAChC;;;ICHD,qCAAuC","file":"serializable.d.ts","sourceRoot":"sources/components"}
