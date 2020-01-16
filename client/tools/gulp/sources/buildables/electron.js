@@ -1,42 +1,31 @@
-
-const { sources, builds } = require('../helpers/filesystem')
-const fs = require('fs');
+const { sources, builds } = require("../helpers/filesystem");
+const fs = require("fs");
 const glob = require("glob");
-const component = require("./component")
-const electron = require('./../compilers/electron');
+const component = require("./component");
+const electron = require("./../compilers/electron");
 
-class Electron
-{
-	constructor(name)
-	{
+class Electron {
+	constructor(name) {
 		this.name = name;
 	}
 
-	path()
-	{
-		return builds + '/electrons/' + this.name;
+	path() {
+		return builds + "/electrons/" + this.name;
 	}
 
-	build()
-	{
+	build() {
 		const path = this.path();
-		return electron.compileApp('proxier', path,{
-			onBuild : ()=>{ console.log('[build] ts:component/' + this.name) },
-		});
+		return electron.compileApp("proxier", path, {});
 	}
 }
 
-function all()
-{
-	try{
-		const dir = sources + '/electrons';
-		return fs.readdirSync(dir).map(path=>new Electron(path));
-	}
-	catch(e)
-	{
-		return []
+function all() {
+	try {
+		const dir = sources + "/electrons";
+		return fs.readdirSync(dir).map(path => new Electron(path));
+	} catch (e) {
+		return [];
 	}
 }
 
-
-exports.all = all
+exports.all = all;

@@ -52,6 +52,10 @@ class Bootstrap {
 		return result;
 	}
 
+	task() {
+		return `[bootstrap] ${this.name}`;
+	}
+
 	build() {
 		const path = "/bootstraps/" + this.name;
 		const promises = [];
@@ -63,9 +67,7 @@ class Bootstrap {
 					env: {
 						paths: this.paths()
 					},
-					onBuild: () => {
-						console.log("[build] jade:bootstrap/" + this.name);
-					},
+					onBuild: () => {},
 					onEnd: () => {
 						fs.writeFileSync(
 							buildDir + "/" + this.name + ".checksum",
@@ -85,9 +87,7 @@ class Bootstrap {
 						env: {
 							paths: this.paths()
 						},
-						onBuild: () => {
-							console.log("[build] jade:bootstrap/" + this.name);
-						},
+						onBuild: () => {},
 						onEnd: () => {
 							fs.writeFileSync(
 								builds + path + "/" + this.name + ".checksum",
