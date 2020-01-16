@@ -1,1 +1,0 @@
-{"version":3,"sources":["sources/registration.ts"],"names":[],"mappings":";;AAGA,MAAa,YAAY;IAGrB,YAAY,KAAsB;QAC9B,IAAI,CAAC,KAAK,GAAG,KAAK,CAAC;IACvB,CAAC;IAEM,WAAW;QACd,IAAI,CAAC,KAAK,CAAC,WAAW,CAAC,IAAI,CAAC,CAAC;IACjC,CAAC;CACJ;AAVD,oCAUC","file":"registration.js","sourceRoot":"/home/remi/Projects/Proxier/server/sources/components"}
