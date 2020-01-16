@@ -3,8 +3,6 @@ import { SocketClient } from "socket-client";
 import { SerializableClass } from "./interfaces";
 import { Endpoint } from "./endpoint";
 
-import * as ProxyEndpointable from "proxy";
-
 export class Api {
     private client: SocketClient;
 

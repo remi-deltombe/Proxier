@@ -419,7 +419,7 @@
 			"file": "/home/remi/Projects/Proxier/server/sources/components/web-server/sources/web-server.ts",
 			"settings":
 			{
-				"buffer_size": 1367,
+				"buffer_size": 1129,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -474,7 +474,7 @@
 			"file": "/home/remi/Projects/Proxier/.gitignore",
 			"settings":
 			{
-				"buffer_size": 105,
+				"buffer_size": 90,
 				"line_ending": "Unix"
 			}
 		},
@@ -1064,15 +1064,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1367,
+						"buffer_size": 1129,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								1123,
+								1123
 							]
 						],
 						"settings":
@@ -1084,7 +1084,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 566.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -1288,15 +1288,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 105,
+						"buffer_size": 90,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								91,
-								91
+								90,
+								90
 							]
 						],
 						"settings":

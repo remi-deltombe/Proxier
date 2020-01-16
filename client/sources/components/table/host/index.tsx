@@ -7,27 +7,12 @@ function Component(props: any): JSX.Element {
 	return <>{props.text}</>;
 }
 
-/*
-export interface TableRowItemInterface {
-    text?: string;
-    element?: JSX.Element;
-}
-
-export interface TableRowInterface {
-    items?: TableRowItemInterface[];
-}
-
-export interface TableInterface {
-    headers?: TableRowInterface[];
-    rows?: TableRowInterface[];
-}
-*/
-
 ReactDOM.render(
 	<div>
 		<Table
 			headers={[
 				{
+					key: "header",
 					items: [
 						{ element: <Component text="button 1" /> },
 						{ text: "item 1", width: "100%" },
@@ -39,6 +24,7 @@ ReactDOM.render(
 			]}
 			rows={[
 				{
+					key: "row1",
 					items: [
 						{ element: <Component text="button 1" /> },
 						{ text: "item 1" },
@@ -48,6 +34,7 @@ ReactDOM.render(
 					]
 				},
 				{
+					key: "row2",
 					items: [
 						{ element: <Component text="button 1" /> },
 						{ text: "item 1" },
@@ -57,6 +44,7 @@ ReactDOM.render(
 					]
 				},
 				{
+					key: "row3",
 					items: [
 						{ element: <Component text="button 1" /> },
 						{ text: "item 1" },
@@ -66,6 +54,7 @@ ReactDOM.render(
 					]
 				},
 				{
+					key: "row4",
 					items: [
 						{ element: <Component text="button 1" /> },
 						{ text: "item 1" },
@@ -75,6 +64,7 @@ ReactDOM.render(
 					]
 				},
 				{
+					key: "row5",
 					items: [
 						{ element: <Component text="button 1" /> },
 						{ text: "item 1" },
