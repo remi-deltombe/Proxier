@@ -14,15 +14,22 @@ export const style = css`
 		font-size: 14px;
 
 		border-bottom: 3px solid transparent;
-		transition: 0.15s;
-		cursor: pointer;
 
-		&:hover {
-			border-bottom: 3px solid ${colors.grey8};
+		&.is-composed {
+			padding: 0;
 		}
 
-		&.is-active {
-			border-bottom: 3px solid ${colors.primary7};
+		&.is-clickable {
+			transition: 0.15s;
+			cursor: pointer;
+
+			&:hover {
+				border-bottom: 3px solid ${colors.grey8};
+			}
+
+			&.is-active {
+				border-bottom: 3px solid ${colors.primary7};
+			}
 		}
 	}
 `;

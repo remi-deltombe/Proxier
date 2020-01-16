@@ -9,11 +9,12 @@ export const style = css`
     transition: 0.15s;
 
     .label {
+        width: 100%;
         font-size: 12px;
-        margin-right: 5px;
     }
 
     input {
+        width: 100%;
         border: 1px solid ${colors.grey6};
         font-size: 14px;
         line-height: 16px;

@@ -1,3 +1,5 @@
+/** @jsx jsx */
+import { jsx } from "@emotion/core";
 import * as React from "react";
 
 import { Registration } from "event";
@@ -7,6 +9,7 @@ import { Table, TableRowInterface } from "table";
 import { Link } from "link";
 import { Api, Endpoint } from "api";
 import { Proxy, Exchange } from "proxy";
+import { style } from "./styles";
 
 export interface ProxyDetailInterface {
     proxy: Proxy;
@@ -60,7 +63,7 @@ export function ProxyDetail(config: ProxyDetailInterface) {
                 },
                 {
                     element: (
-                        <>
+                        <div>
                             <Button
                                 text={"Cache"}
                                 onClick={() => {
@@ -79,7 +82,7 @@ export function ProxyDetail(config: ProxyDetailInterface) {
                                     onExchangeChange(exchange);
                                 }}
                             />
-                        </>
+                        </div>
                     )
                 }
             ]
@@ -87,17 +90,22 @@ export function ProxyDetail(config: ProxyDetailInterface) {
     }
 
     return (
-        <div>
-            <Link text={link} link={link} blank={true} />
-            ->
-            <Link text={proxy.url} link={proxy.url} blank={true} />
-            <hr />
+        <div css={style}>
+            <div className="header">
+                <div className="from">
+                    <Link text={proxy.url} link={proxy.url} blank={true} />
+                </div>
+                <div className="arrow">></div>
+                <div className="to">
+                    <Link text={link} link={link} blank={true} />
+                </div>
+            </div>
             <Table
                 headers={[
                     {
                         key: "titles",
                         items: [
-                            { text: "Method", width: "1px" },
+                            { text: "Method", width: "60px" },
                             { text: "Request" },
                             { text: "Cache", width: "200px" }
                         ]
@@ -123,7 +131,7 @@ export function ProxyDetail(config: ProxyDetailInterface) {
                             },
                             {
                                 element: (
-                                    <>
+                                    <div>
                                         <Button
                                             text="Enable"
                                             onClick={() =>
@@ -146,7 +154,7 @@ export function ProxyDetail(config: ProxyDetailInterface) {
                                                 })
                                             }
                                         />
-                                    </>
+                                    </div>
                                 )
                             }
                         ]

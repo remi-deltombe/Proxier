@@ -11,8 +11,12 @@ export function MultiTab(config: MultiTabInterface): JSX.Element {
 		const { text, element, active, onClick } = item;
 		return (
 			<div
-				className={`item ${active ? "is-active" : ""}`}
-				onClick={() => onClick()}
+				className={`item
+					${active ? "is-active" : ""} 
+					${onClick ? "is-clickable" : ""}
+					${element ? "is-composed" : ""}
+				`}
+				onClick={() => (onClick ? onClick() : "")}
 			>
 				{text}
 				{element}

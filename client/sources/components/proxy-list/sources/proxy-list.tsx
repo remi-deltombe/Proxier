@@ -3,35 +3,30 @@ import * as React from "react";
 import { Proxy } from "proxy";
 import { Endpoint } from "api";
 import { Button } from "button";
+import { MultiTab } from "multi-tab";
 
 export interface ProxyListInterface {
-    //endpoint: Endpoint<Proxy>;
+    active?: Proxy;
     proxies: Proxy[];
     onAdd: () => void;
     onClick: (proxy: Proxy) => void;
 }
 
 export function ProxyList(config: ProxyListInterface): JSX.Element {
-    const { proxies, onClick, onAdd } = config;
-
-    function renderItem(proxy: Proxy): JSX.Element {
-        return (
-            <Button
-                key={proxy.uuid}
-                onClick={() => onClick(proxy)}
-                text={proxy.url}
-            />
-        );
-    }
-
-    function renderAddButton(): JSX.Element {
-        return <Button onClick={() => onAdd()} text={"+"} />;
-    }
+    const { active, proxies, onClick, onAdd } = config;
 
     return (
-        <>
-            {proxies.map(proxy => renderItem(proxy))}
-            {renderAddButton()}
-        </>
+        <MultiTab
+            items={[
+                {
+                    element: <Button onClick={() => onAdd()} text={"+"} />
+                },
+                ...proxies.map(proxy => ({
+                    text: proxy.url,
+                    active: proxy === active,
+                    onClick: () => onClick(proxy)
+                }))
+            ]}
+        />
     );
 }

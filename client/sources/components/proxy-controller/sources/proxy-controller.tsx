@@ -93,13 +93,11 @@ export function ProxyController(config: ProxyControllerInterface): JSX.Element {
     return (
         <>
             <ProxyList
+                active={proxy}
                 proxies={proxies}
                 onClick={proxy => setProxy(proxy)}
                 onAdd={() => setProxy(undefined)}
             />
-            <br />
-            <hr />
-            <br />
             {proxy && (
                 <ProxyDetail
                     proxy={proxy}

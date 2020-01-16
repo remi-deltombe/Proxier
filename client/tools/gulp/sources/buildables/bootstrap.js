@@ -32,6 +32,7 @@ class Bootstrap {
 	}
 
 	changed() {
+		return true;
 		const path = "/bootstraps/" + this.name;
 		const buildDir = this.buildDir ? this.buildDir : builds + path;
 		try {

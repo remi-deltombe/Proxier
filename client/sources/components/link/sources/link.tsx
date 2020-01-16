@@ -8,7 +8,12 @@ import { style } from "./styles";
 
 export function Link(config: LinkInterface) {
 	return (
-		<a css={style} href={config.link} target={config.blank ? "_blank" : ""}>
+		<a
+			className="link"
+			css={style}
+			href={config.link}
+			target={config.blank ? "_blank" : ""}
+		>
 			{config.text}
 		</a>
 	);
