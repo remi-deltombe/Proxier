@@ -12,6 +12,7 @@ export interface TableHeaderItemInterface extends TableRowItemInterface {
 export interface TableRowInterface {
 	key: string;
 	items?: TableRowItemInterface[];
+	onClick?: () => void;
 }
 
 export interface TableHeaderInterface {

@@ -29,4 +29,8 @@ export const style = css`
     tr:hover td {
         background: ${colors.grey9};
     }
+
+    .is-clickable {
+        cursor: pointer;
+    }
 `;

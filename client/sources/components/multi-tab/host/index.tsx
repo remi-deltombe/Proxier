@@ -12,8 +12,7 @@ ReactDOM.render(
 				}
 			},
 			{
-				
-				element: <>blabla</>
+				element: <>blabla</>,
 				active: true,
 				onClick: () => {
 					console.log("2");

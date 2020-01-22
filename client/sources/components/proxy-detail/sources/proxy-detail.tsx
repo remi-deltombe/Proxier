@@ -10,6 +10,7 @@ import { Link } from "link";
 import { Api, Endpoint } from "api";
 import { Proxy, Exchange } from "proxy";
 import { ExchangeTable } from "exchange-table";
+import { ExchangeForm } from "exchange-form";
 import { style } from "./styles";
 
 export interface ProxyDetailInterface {
@@ -23,22 +24,28 @@ interface ProxyDetailTableRowInterface extends TableRowInterface {
 }
 
 export function ProxyDetail(config: ProxyDetailInterface) {
-    const { proxy } = config;
+    const { proxy, onExchangeChange } = config;
 
     const link = `http://${proxy.hostname}:${proxy.port}`;
+    const [exchange, setExchange] = React.useState<Exchange>(undefined);
 
     return (
         <div css={style}>
             <div className="header">
                 <div className="from">
-                    <Link text={proxy.url} link={proxy.url} blank={true} />
+                    <Link text={link} link={link} blank={true} />
                 </div>
                 <div className="arrow">></div>
                 <div className="to">
-                    <Link text={link} link={link} blank={true} />
+                    <Link text={proxy.url} link={proxy.url} blank={true} />
                 </div>
             </div>
-            <ExchangeTable {...config} />
+            <ExchangeTable
+                {...config}
+                onExchangeChange={exchange => onExchangeChange(exchange)}
+                onExchangeFocus={exchange => setExchange(exchange)}
+            />
+            {exchange && <ExchangeForm exchange={exchange} />}
         </div>
     );
 }

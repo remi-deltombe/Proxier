@@ -21,9 +21,13 @@ export function TableRowItem(config: TableRowItemInterface) {
 }
 
 export function TableRow(config: TableRowInterface) {
+    const { items, onClick = () => {} } = config;
     return (
-        <tr>
-            {config.items.map((item, i) => (
+        <tr
+            onClick={() => onClick()}
+            className={config.onClick ? "is-clickable" : ""}
+        >
+            {items.map((item, i) => (
                 <TableRowItem key={i} {...item} />
             ))}
         </tr>

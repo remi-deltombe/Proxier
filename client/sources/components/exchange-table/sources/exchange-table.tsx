@@ -11,6 +11,7 @@ import { Proxy, Exchange } from "proxy";
 export interface ExchangeTableInterface {
     exchanges: Exchange[];
     onExchangeChange?: (exchange: Exchange) => void;
+    onExchangeFocus?: (exchange: Exchange) => void;
 }
 
 interface ExchangeTableRowInterface extends TableRowInterface {
@@ -18,7 +19,11 @@ interface ExchangeTableRowInterface extends TableRowInterface {
 }
 
 export function ExchangeTable(config: ExchangeTableInterface) {
-    const { exchanges, onExchangeChange = () => {} } = config;
+    const {
+        exchanges,
+        onExchangeChange = () => {},
+        onExchangeFocus = () => {}
+    } = config;
 
     const [filterMethod, setFilterMethod] = React.useState<string>("");
     const [filterRequest, setFilterRequest] = React.useState<string>("");
@@ -45,6 +50,7 @@ export function ExchangeTable(config: ExchangeTableInterface) {
         return {
             exchange,
             key: exchange.uuid,
+            onClick: () => onExchangeFocus(exchange),
             items: [
                 { text: exchange.method },
                 {
@@ -66,7 +72,7 @@ export function ExchangeTable(config: ExchangeTableInterface) {
                                 }}
                             />
                             <Button
-                                text={exchange.cached ? "Disable" : "Enable"}
+                                text={exchange.cached ? "Enable" : "Disable"}
                                 color={
                                     exchange.cached
                                         ? ButtonColor.GREEN
