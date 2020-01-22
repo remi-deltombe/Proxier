@@ -17,4 +17,18 @@ export const style = css`
             font-size: 16px;
         }
     }
+
+    .content {
+        display: flex;
+
+        .list,
+        .form {
+            width: 100%;
+        }
+
+        .form {
+            border-left: 1px solid ${colors.grey8};
+            padding: 0 20px;
+        }
+    }
 `;

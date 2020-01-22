@@ -40,12 +40,22 @@ export function ProxyDetail(config: ProxyDetailInterface) {
                     <Link text={proxy.url} link={proxy.url} blank={true} />
                 </div>
             </div>
-            <ExchangeTable
-                {...config}
-                onExchangeChange={exchange => onExchangeChange(exchange)}
-                onExchangeFocus={exchange => setExchange(exchange)}
-            />
-            {exchange && <ExchangeForm exchange={exchange} />}
+            <div className="content">
+                <div className="list">
+                    <ExchangeTable
+                        {...config}
+                        onExchangeChange={exchange =>
+                            onExchangeChange(exchange)
+                        }
+                        onExchangeFocus={exchange => setExchange(exchange)}
+                    />
+                </div>
+                {exchange && (
+                    <div className="form">
+                        <ExchangeForm exchange={exchange} />
+                    </div>
+                )}
+            </div>
         </div>
     );
 }

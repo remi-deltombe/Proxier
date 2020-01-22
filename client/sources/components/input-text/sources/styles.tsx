@@ -2,11 +2,13 @@ import { css } from "@emotion/core";
 import { fonts, colors } from "constants";
 
 export const style = css`
+    display: block;
     font-size: 14px;
     line-height: 16px;
     font-family: ${fonts.normal};
     color: ${colors.grey2};
     transition: 0.15s;
+    margin-bottom: 8px;
 
     .label {
         width: 100%;
@@ -14,6 +16,7 @@ export const style = css`
     }
 
     input {
+        box-sizing: border-box;
         width: 100%;
         border: 1px solid ${colors.grey6};
         font-size: 14px;
