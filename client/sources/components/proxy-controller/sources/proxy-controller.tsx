@@ -67,6 +67,9 @@ export function ProxyController(config: ProxyControllerInterface): JSX.Element {
     React.useEffect(() => {
         if (exchangeEndpoint) {
             const registrations = [
+                exchangeEndpoint.onGet.subscribe(exchange =>
+                    refreshExchanges()
+                ),
                 exchangeEndpoint.onCreate.subscribe(exchange =>
                     refreshExchanges()
                 ),
@@ -105,6 +108,7 @@ export function ProxyController(config: ProxyControllerInterface): JSX.Element {
                     onExchangeChange={exchange =>
                         exchangeEndpoint.update(exchange)
                     }
+                    onExchangeGet={exchange => exchangeEndpoint.get(exchange)}
                 />
             )}
             {!proxy && <ProxyCreate onCreate={handleOnCreate} />}

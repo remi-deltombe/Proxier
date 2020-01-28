@@ -44,6 +44,13 @@ export class Endpoint<C extends Serializable> {
         });
     }
 
+    public get(serializable: C) {
+        this.client.send(this.id, {
+            action: ApiAction.GET,
+            uuid: serializable.uuid
+        });
+    }
+
     public update(serializable: C) {
         this.client.send(this.id, {
             action: ApiAction.UPDATE,

@@ -1,5 +1,5 @@
 export interface Serializable {
-    uuid: string;
-    serialize(): any;
-    deserialize(data: any): void;
+	uuid: string;
+	serialize(children?: boolean): any;
+	deserialize(data: any): void;
 }

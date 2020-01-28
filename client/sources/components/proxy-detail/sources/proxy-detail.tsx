@@ -16,6 +16,7 @@ import { style } from "./styles";
 export interface ProxyDetailInterface {
     proxy: Proxy;
     exchanges: Exchange[];
+    onExchangeGet?: (exchange: Exchange) => void;
     onExchangeChange?: (exchange: Exchange) => void;
 }
 
@@ -24,7 +25,11 @@ interface ProxyDetailTableRowInterface extends TableRowInterface {
 }
 
 export function ProxyDetail(config: ProxyDetailInterface) {
-    const { proxy, onExchangeChange } = config;
+    const {
+        proxy,
+        onExchangeGet = (e: Exchange) => e,
+        onExchangeChange
+    } = config;
 
     const link = `http://${proxy.hostname}:${proxy.port}`;
     const [exchange, setExchange] = React.useState<Exchange>(undefined);
@@ -47,12 +52,20 @@ export function ProxyDetail(config: ProxyDetailInterface) {
                         onExchangeChange={exchange =>
                             onExchangeChange(exchange)
                         }
-                        onExchangeFocus={exchange => setExchange(exchange)}
+                        onExchangeFocus={async exchange => {
+                            onExchangeGet(exchange);
+                            setExchange(exchange);
+                        }}
                     />
                 </div>
                 {exchange && (
                     <div className="form">
-                        <ExchangeForm exchange={exchange} />
+                        <ExchangeForm
+                            exchange={exchange}
+                            onExchangeChange={exchange =>
+                                onExchangeChange(exchange)
+                            }
+                        />
                     </div>
                 )}
             </div>

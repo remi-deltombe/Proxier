@@ -42,5 +42,8 @@ export class Response implements SerializableInterface {
         return result;
     }
 
-    public deserialize(data: any): void {}
+    public deserialize(data: any): void {
+        this.code = data.code ?? this.code;
+        this.body = data.body ?? this.body;
+    }
 }

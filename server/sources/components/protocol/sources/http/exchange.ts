@@ -20,5 +20,8 @@ export class Exchange implements SerializableInterface {
 		};
 	}
 
-	public deserialize(data: any): void {}
+	public deserialize(data: any): void {
+		this.request.deserialize(data.request ?? {});
+		this.response.deserialize(data.response ?? {});
+	}
 }

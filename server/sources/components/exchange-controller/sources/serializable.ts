@@ -20,6 +20,7 @@ export class Serializable implements SerializableInterface {
 
     public deserialize(data: any): void {
         this.cached = data.cached ?? this.cached;
+        this.exchange.deserialize(data.exchange ?? {});
     }
 
     public equal(serializable: Serializable) {

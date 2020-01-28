@@ -61,5 +61,11 @@ export class Request implements SerializableInterface {
         return result;
     }
 
-    public deserialize(data: any): void {}
+    public deserialize(data: any): void {
+        this.method = data.method ?? this.method;
+        this.hostname = data.hostname ?? this.hostname;
+        this.protocol = data.protocol ?? this.protocol;
+        this.port = data.port ?? this.port;
+        this.path = data.path ?? this.path;
+    }
 }
