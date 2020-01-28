@@ -4,3 +4,4 @@ server/builds
 client/builds
 electron/sources
 electron/dist
+*.sublime-workspace
