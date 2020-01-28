@@ -69,7 +69,7 @@ export class Endpoint<C extends SerializableInterface> {
         this.server.send(this.id, {
             action: ApiAction.GET,
             uuid: serializable.uuid.toString(),
-            payload: serializable.serialize()
+            payload: serializable.serialize(true)
         });
     }
 
