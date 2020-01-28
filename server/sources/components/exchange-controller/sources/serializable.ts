@@ -9,11 +9,12 @@ export class Serializable implements SerializableInterface {
     public exchange: Http.Exchange;
     public cached: boolean = true;
 
-    public serialize(): any {
+    public serialize(children: boolean = false): any {
         return {
             cached: this.cached,
             url: `${this.exchange.request.protocol}://${this.exchange.request.hostname}${this.exchange.request.path}`,
-            method: this.exchange.request.method
+            method: this.exchange.request.method,
+            exchange: children ? this.exchange.serialize(true) : undefined
         };
     }
 

@@ -1,6 +1,9 @@
 import { BINARY_TYPES } from "./constants";
+import { SerializableInterface } from "../../../serializable/serializable";
+import { Uuid } from "../../../uuid/uuid";
 
-export class Response {
+export class Response implements SerializableInterface {
+    public readonly uuid: Uuid = new Uuid();
     public code: number = 200;
     public header: Map<string, string> = new Map();
     public body: string = "";
@@ -25,4 +28,19 @@ export class Response {
         }
         return false;
     }
+
+    public serialize(children: boolean = false): any {
+        const result = {
+            code: this.code,
+            header: {},
+            body: this.body
+        };
+
+        for (const h in this.header) {
+            (result.header as any)[h] = this.header.get(h);
+        }
+        return result;
+    }
+
+    public deserialize(data: any): void {}
 }

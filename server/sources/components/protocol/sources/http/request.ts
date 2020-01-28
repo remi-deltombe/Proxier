@@ -1,4 +1,8 @@
-export class Request {
+import { SerializableInterface } from "../../../serializable/serializable";
+import { Uuid } from "../../../uuid/uuid";
+
+export class Request implements SerializableInterface {
+    public readonly uuid: Uuid = new Uuid();
     public header: Map<string, string> = new Map();
     public method: string = "GET";
     public hostname: string = "localhost";
@@ -39,4 +43,23 @@ export class Request {
 
         return request;
     }
+
+    public serialize(children: boolean = false): any {
+        const result = {
+            header: {},
+            method: this.method,
+            hostname: this.hostname,
+            protocol: this.protocol,
+            port: this.port,
+            path: this.path
+        };
+
+        for (const h in this.header) {
+            (result.header as any)[h] = this.header.get(h);
+        }
+
+        return result;
+    }
+
+    public deserialize(data: any): void {}
 }
