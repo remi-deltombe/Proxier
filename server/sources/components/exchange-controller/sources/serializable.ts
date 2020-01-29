@@ -12,7 +12,7 @@ export class Serializable implements SerializableInterface {
     public serialize(children: boolean = false): any {
         return {
             cached: this.cached,
-            url: `${this.exchange.request.protocol}://${this.exchange.request.hostname}${this.exchange.request.path}`,
+            url: this.exchange.request.url(),
             method: this.exchange.request.method,
             exchange: children ? this.exchange.serialize(true) : undefined
         };

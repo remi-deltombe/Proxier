@@ -44,6 +44,12 @@ export class Request implements SerializableInterface {
         return request;
     }
 
+    public url(): string {
+        return `${this.protocol}://${this.hostname}${
+            this.displayPort() ? ":" + this.port : ""
+        }${this.path}`;
+    }
+
     public serialize(children: boolean = false): any {
         const result = {
             header: {},
@@ -67,5 +73,12 @@ export class Request implements SerializableInterface {
         this.protocol = data.protocol ?? this.protocol;
         this.port = data.port ?? this.port;
         this.path = data.path ?? this.path;
+    }
+
+    private displayPort(): boolean {
+        return (
+            (this.protocol === "http" && this.port !== 80) ||
+            (this.protocol === "https" && this.port !== 443)
+        );
     }
 }

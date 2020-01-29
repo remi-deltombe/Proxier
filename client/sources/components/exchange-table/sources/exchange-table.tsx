@@ -66,12 +66,6 @@ export function ExchangeTable(config: ExchangeTableInterface) {
                     element: (
                         <div>
                             <Button
-                                text={"Cache"}
-                                onClick={() => {
-                                    window.open(exchange.url, "_blank");
-                                }}
-                            />
-                            <Button
                                 text={exchange.cached ? "Enable" : "Disable"}
                                 color={
                                     exchange.cached
