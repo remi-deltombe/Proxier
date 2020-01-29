@@ -42,12 +42,13 @@ export class Controller extends EndpointController<Serializable> {
     public async handleOnUpdate(
         serializable: Serializable
     ): Promise<Serializable> {
-        const request = serializable.exchange.request;
+        const { request, response } = serializable.exchange;
         if (serializable.cached) {
             this.proxy.enableCache(request);
         } else {
             this.proxy.disableCache(request);
         }
+        this.proxy.setResponseForRequest(request, response);
         return serializable;
     }
 

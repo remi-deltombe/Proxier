@@ -27,8 +27,6 @@ export function ExchangeForm(config: ExchangeFormInterface) {
     return (
         <div>
             <Button text="Save" onClick={() => handleSave()} />
-            <InputText label="url" value={exchange.url} />
-            <InputText label="method" value={exchange.method} />
             <TextEditor
                 label="Body"
                 value={body}

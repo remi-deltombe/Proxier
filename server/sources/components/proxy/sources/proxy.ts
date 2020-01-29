@@ -81,6 +81,13 @@ export class Proxy {
         }
     }
 
+    public setResponseForRequest(
+        request: Http.Request,
+        response: Http.Response
+    ) {
+        this.cache.set(request, response);
+    }
+
     public enableCache(request: Http.Request) {
         this.cache.enable(request);
     }

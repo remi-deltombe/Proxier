@@ -37,6 +37,7 @@ export const style = ({ color = ButtonColor.DEFAULT }) => {
 		font-size: 14px;
 		line-height: 16px;
 		padding: 4px 14px;
+		margin-bottom: 8px;
 		border-radius: 2px;
 		margin-right: 6px;
 		font-family: ${fonts.normal};

@@ -44,6 +44,10 @@ export class Response implements SerializableInterface {
 
     public deserialize(data: any): void {
         this.code = data.code ?? this.code;
-        this.body = data.body ?? this.body;
+
+        if (data.body) {
+            this.body = data.body;
+            this.rawBody = Buffer.from(data.body);
+        }
     }
 }
