@@ -23,4 +23,5 @@ export interface TableHeaderInterface {
 export interface TableInterface {
 	headers?: TableHeaderInterface[];
 	rows?: TableRowInterface[];
+	footers?: TableRowInterface[];
 }

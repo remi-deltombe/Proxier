@@ -36,8 +36,8 @@ export class Response implements SerializableInterface {
             body: this.body
         };
 
-        for (const h in this.header) {
-            (result.header as any)[h] = this.header.get(h);
+        for (const entry of this.header.entries()) {
+            (result.header as any)[entry[0]] = entry[1];
         }
         return result;
     }
@@ -48,6 +48,12 @@ export class Response implements SerializableInterface {
         if (data.body) {
             this.body = data.body;
             this.rawBody = Buffer.from(data.body);
+        }
+        if (data.header) {
+            this.header = new Map();
+            for (const key in data.header) {
+                this.header.set(key, data.header[key]);
+            }
         }
     }
 }

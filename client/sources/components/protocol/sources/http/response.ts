@@ -34,8 +34,8 @@ export class Response implements Serializable {
             body: this.body
         };
 
-        for (const h in this.header) {
-            (result.header as any)[h] = this.header.get(h);
+        for (const [key, value] of this.header.entries()) {
+            (result.header as any)[key] = value;
         }
         return result;
     }

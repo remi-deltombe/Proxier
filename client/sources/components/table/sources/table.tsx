@@ -56,16 +56,27 @@ export function TableHeader(config: TableRowInterface) {
 export function Table(config: TableInterface) {
     return (
         <table css={style}>
-            <thead>
-                {config.headers.map(header => (
-                    <TableHeader key={header.key} {...header} />
-                ))}
-            </thead>
-            <tbody>
-                {config.rows.map(row => (
-                    <TableRow key={row.key} {...row} />
-                ))}
-            </tbody>
+            {config.headers && (
+                <thead>
+                    {config.headers.map(header => (
+                        <TableHeader key={header.key} {...header} />
+                    ))}
+                </thead>
+            )}
+            {config.rows && (
+                <tbody>
+                    {config.rows.map(row => (
+                        <TableRow key={row.key} {...row} />
+                    ))}
+                </tbody>
+            )}
+            {config.footers && (
+                <tfoot>
+                    {config.footers.map(row => (
+                        <TableRow key={row.key} {...row} />
+                    ))}
+                </tfoot>
+            )}
         </table>
     );
 }

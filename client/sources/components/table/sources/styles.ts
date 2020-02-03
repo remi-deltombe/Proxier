@@ -9,6 +9,7 @@ export const style = css`
     color: ${colors.grey3};
     text-align: left;
     border-collapse: collapse;
+    margin-bottom: 8px;
     border: none;
     word-break: break-all;
 
@@ -26,7 +27,7 @@ export const style = css`
         border-bottom: 1px solid ${colors.grey9};
     }
 
-    tr:hover td {
+    tbody tr:hover td {
         background: ${colors.grey9};
     }
 
