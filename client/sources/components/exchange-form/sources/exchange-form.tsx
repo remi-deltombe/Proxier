@@ -58,7 +58,7 @@ export function ExchangeForm(config: ExchangeFormInterface) {
     }
 
     function handleRemoveHeader(key: string) {
-        response.header.delete(key);
+        header.delete(key);
         setHeader(new Map(header));
     }
 
