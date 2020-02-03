@@ -1,6 +1,7 @@
 import { Event } from "../../event/event";
 import { Http } from "../../protocol/protocol";
 import { Uuid } from "../../uuid/uuid";
+import { Timestamp } from "../../timestamp/timestamp";
 import { Server } from "./server";
 import { Client } from "./client";
 import { Parser } from "./parser";
@@ -107,7 +108,11 @@ export class Proxy {
             this.onResponse.fire({ response });
             this.onExchange.fire({
                 cached,
-                exchange: new Http.Exchange(request, response)
+                exchange: new Http.Exchange(
+                    request,
+                    response,
+                    Timestamp.fromNow()
+                )
             });
             this.cache.set(request, response);
         }
