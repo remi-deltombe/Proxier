@@ -171,7 +171,7 @@ export function ExchangeForm(config: ExchangeFormInterface) {
                 label="Body"
                 value={body}
                 onChange={value => setBody(value)}
-                rows={30}
+                rows={20}
             />
         </div>
     );

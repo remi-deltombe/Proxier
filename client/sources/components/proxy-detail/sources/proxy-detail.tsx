@@ -47,6 +47,7 @@ export function ProxyDetail(config: ProxyDetailInterface) {
             </div>
             <div className="content">
                 <div className="list">
+                    <div className="title">Requests</div>
                     <ExchangeTable
                         {...config}
                         onExchangeChange={exchange =>
@@ -60,6 +61,7 @@ export function ProxyDetail(config: ProxyDetailInterface) {
                 </div>
                 {exchange && (
                     <div className="form">
+                        <div className="title">Edit request</div>
                         <ExchangeForm
                             exchange={exchange}
                             onExchangeChange={exchange =>
