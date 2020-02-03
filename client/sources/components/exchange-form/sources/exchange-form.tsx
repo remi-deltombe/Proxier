@@ -11,7 +11,11 @@ import { ExchangeFormInterface } from "./interfaces";
 import { style } from "./styles";
 
 export function ExchangeForm(config: ExchangeFormInterface) {
-    const { exchange, onExchangeChange = () => {} } = config;
+    const {
+        exchange,
+        onExchangeChange = () => {},
+        onClose = () => {}
+    } = config;
     const { request, response } = exchange.exchange ?? {};
 
     const [body, setBody] = React.useState<string>(response?.body ?? "");
@@ -34,6 +38,10 @@ export function ExchangeForm(config: ExchangeFormInterface) {
         exchange.exchange.response.body = body;
         exchange.exchange.response.header = header;
         onExchangeChange(exchange);
+    }
+
+    function handleClose() {
+        onClose();
     }
 
     function handleSetHeader(
@@ -107,6 +115,7 @@ export function ExchangeForm(config: ExchangeFormInterface) {
     return (
         <div css={style()}>
             <Button text="Save" onClick={() => handleSave()} />
+            <Button text="Close" onClick={() => handleClose()} />
 
             <hr />
             <div className="label">Header</div>

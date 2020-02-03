@@ -65,6 +65,9 @@ export function ProxyDetail(config: ProxyDetailInterface) {
                             onExchangeChange={exchange =>
                                 onExchangeChange(exchange)
                             }
+                            onClose={() => {
+                                setExchange(undefined);
+                            }}
                         />
                     </div>
                 )}

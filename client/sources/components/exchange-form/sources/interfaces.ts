@@ -1,6 +1,7 @@
 import { Exchange } from "proxy";
 
 export interface ExchangeFormInterface {
-    exchange: Exchange;
-    onExchangeChange?: (exchange: Exchange) => void;
+	exchange: Exchange;
+	onExchangeChange?: (exchange: Exchange) => void;
+	onClose?: () => void;
 }
