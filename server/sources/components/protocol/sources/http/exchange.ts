@@ -5,7 +5,7 @@ import { Timestamp } from "../../../timestamp/timestamp";
 import { SerializableInterface } from "../../../serializable/serializable";
 
 export class Exchange implements SerializableInterface {
-	public readonly uuid: Uuid = new Uuid();
+	public uuid: Uuid = new Uuid();
 
 	public createdAt: Timestamp;
 	public requestedAt: Timestamp;
@@ -14,8 +14,8 @@ export class Exchange implements SerializableInterface {
 	public response: Response;
 
 	constructor(
-		request: Request,
-		response: Response,
+		request: Request = new Request(),
+		response: Response = new Response(),
 		timestamp: Timestamp = new Timestamp()
 	) {
 		this.request = request;
@@ -36,5 +36,13 @@ export class Exchange implements SerializableInterface {
 	public deserialize(data: any): void {
 		this.request.deserialize(data.request ?? {});
 		this.response.deserialize(data.response ?? {});
+	}
+
+	public copy(exchange: Exchange) {
+		this.uuid = exchange.uuid.clone();
+		this.createdAt = exchange.createdAt.clone();
+		this.requestedAt = exchange.requestedAt.clone();
+		this.request = exchange.request.clone();
+		this.response = exchange.response.clone();
 	}
 }

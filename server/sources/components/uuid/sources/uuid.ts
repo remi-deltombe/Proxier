@@ -11,6 +11,10 @@ export class Uuid {
         }
     }
 
+    clone(): Uuid {
+        return new Uuid(this.uuid);
+    }
+
     public toString(): string {
         return this.uuid;
     }

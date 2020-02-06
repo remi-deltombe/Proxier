@@ -16,7 +16,7 @@ export function ExchangeForm(config: ExchangeFormInterface) {
         onExchangeChange = () => {},
         onClose = () => {}
     } = config;
-    const { request, response } = exchange.exchange ?? {};
+    const { request, response } = exchange ?? {};
 
     const [body, setBody] = React.useState<string>(response?.body ?? "");
     const [header, setHeader] = React.useState<Map<string, string>>(new Map());
@@ -35,8 +35,8 @@ export function ExchangeForm(config: ExchangeFormInterface) {
     }, [header]);
 
     function handleSave() {
-        exchange.exchange.response.body = body;
-        exchange.exchange.response.header = header;
+        exchange.response.body = body;
+        exchange.response.header = header;
         onExchangeChange(exchange);
     }
 

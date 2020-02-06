@@ -42,7 +42,7 @@ export class Controller extends EndpointController<Serializable> {
     public async handleOnUpdate(
         serializable: Serializable
     ): Promise<Serializable> {
-        const { request, response } = serializable.exchange;
+        const { request, response } = serializable;
         if (serializable.cached) {
             this.proxy.enableCache(request);
         } else {
@@ -61,6 +61,7 @@ export class Controller extends EndpointController<Serializable> {
 
         for (const existing of this.serializables) {
             if (existing.equal(serializable)) {
+                this.endpoint.update(serializable);
                 return;
             }
         }

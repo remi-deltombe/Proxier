@@ -3,11 +3,21 @@ import { SerializableInterface } from "../../../serializable/serializable";
 import { Uuid } from "../../../uuid/uuid";
 
 export class Response implements SerializableInterface {
-    public readonly uuid: Uuid = new Uuid();
+    public uuid: Uuid = new Uuid();
     public code: number = 200;
     public header: Map<string, string> = new Map();
     public body: string = "";
     public rawBody: Buffer = Buffer.from([]);
+
+    public clone(): Response {
+        const result = new Response();
+        result.uuid = this.uuid.clone();
+        result.header = new Map(this.header);
+        result.code = this.code;
+        result.body = this.body;
+        result.rawBody = Buffer.from(this.rawBody);
+        return result;
+    }
 
     public get contentType(): string {
         return this.header.has("content-type")

@@ -3,36 +3,34 @@ import { ProxyExchangeEvent } from "../../proxy/proxy";
 import { Http } from "../../protocol/protocol";
 import { Uuid } from "../../uuid/uuid";
 
-export class Serializable implements SerializableInterface {
-    public readonly uuid: Uuid = new Uuid();
-
-    public exchange: Http.Exchange;
+export class Serializable extends Http.Exchange
+    implements SerializableInterface {
     public cached: boolean = true;
 
     public serialize(children: boolean = false): any {
         return {
+            ...super.serialize(children),
             cached: this.cached,
-            url: this.exchange.request.url(),
-            method: this.exchange.request.method,
-            exchange: children ? this.exchange.serialize(true) : undefined
+            url: this.request.url(),
+            method: this.request.method
         };
     }
 
     public deserialize(data: any): void {
+        super.deserialize(data ?? {});
         this.cached = data.cached ?? this.cached;
-        this.exchange.deserialize(data.exchange ?? {});
     }
 
     public equal(serializable: Serializable) {
         return (
-            serializable.exchange.request.path == this.exchange.request.path &&
-            serializable.exchange.request.method == this.exchange.request.method
+            serializable.request.path == this.request.path &&
+            serializable.request.method == this.request.method
         );
     }
 
     public static fromProxyExchangeEvent(event: ProxyExchangeEvent) {
         const serializable = new Serializable();
-        serializable.exchange = event.exchange;
+        serializable.copy(event.exchange);
         serializable.cached = event.cached;
         return serializable;
     }

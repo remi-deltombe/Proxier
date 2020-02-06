@@ -62,6 +62,7 @@ export function ExchangeTable(config: ExchangeTableInterface) {
                         />
                     )
                 },
+                { text: exchange.requestedAt.format() },
                 {
                     element: (
                         <div>
@@ -93,6 +94,7 @@ export function ExchangeTable(config: ExchangeTableInterface) {
                         items: [
                             { text: "Method", width: "60px" },
                             { text: "Request" },
+                            { text: "Last request" },
                             { text: "Cache", width: "200px" }
                         ]
                     },

@@ -1,14 +1,17 @@
 import { Serializable } from "serializable";
 import { Http } from "protocol";
+import { Timestamp } from "timestamp";
 
-export class Exchange implements Serializable {
+export class Exchange extends Http.Exchange implements Serializable {
     public uuid: string = "";
     public url: string = "";
     public method: string = "";
     public cached: boolean = true;
-    public exchange: Http.Exchange;
+    public createdAt: Timestamp = new Timestamp();
+    public requestedAt: Timestamp = new Timestamp();
 
     constructor(url?: string) {
+        super();
         this.url = url;
     }
 
@@ -17,17 +20,14 @@ export class Exchange implements Serializable {
             url: this.url,
             method: this.method,
             cached: this.cached,
-            exchange: this.exchange.serialize()
+            ...super.serialize()
         };
     }
 
     deserialize(data: any) {
+        super.deserialize(data)
         this.url = data.url;
         this.method = data.method;
         this.cached = !!data.cached;
-        if (data.exchange) {
-            this.exchange = new Http.Exchange();
-            this.exchange.deserialize(data.exchange);
-        }
     }
 }

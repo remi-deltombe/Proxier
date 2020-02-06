@@ -2,7 +2,7 @@ import { SerializableInterface } from "../../../serializable/serializable";
 import { Uuid } from "../../../uuid/uuid";
 
 export class Request implements SerializableInterface {
-    public readonly uuid: Uuid = new Uuid();
+    public uuid: Uuid = new Uuid();
     public header: Map<string, string> = new Map();
     public method: string = "GET";
     public hostname: string = "localhost";
@@ -11,6 +11,19 @@ export class Request implements SerializableInterface {
     public path: string = "/";
 
     public rawBody: Buffer;
+
+    public clone(): Request {
+        const result = new Request();
+        result.uuid = this.uuid.clone();
+        result.header = new Map(this.header);
+        result.method = this.method;
+        result.hostname = this.hostname;
+        result.protocol = this.protocol;
+        result.port = this.port;
+        result.path = this.path;
+        result.rawBody = Buffer.from(this.rawBody);
+        return result;
+    }
 
     public static fromUrl(url: string): Request {
         let parts: string[];

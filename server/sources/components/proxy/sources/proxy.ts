@@ -98,24 +98,23 @@ export class Proxy {
     }
 
     private async handleRequest(request: Http.Request): Promise<Http.Response> {
-        let response: Http.Response = this.cache.get(request);
+        let exchange: Http.Exchange = this.cache.get(request);
+        let response: Http.Response = exchange?.response ?? undefined;
         let cached: boolean = this.cache.cached(request);
+
         if (!response || !cached) {
             this.parser.parseRequest(request);
             this.onRequest.fire({ request });
             response = await this.client.send(request);
             this.parser.parseResponse(response);
-            this.onResponse.fire({ response });
-            this.onExchange.fire({
-                cached,
-                exchange: new Http.Exchange(
-                    request,
-                    response,
-                    Timestamp.fromNow()
-                )
-            });
-            this.cache.set(request, response);
+            exchange = this.cache.set(request, response);
         }
+
+        exchange.requestedAt.updateWithNow();
+
+        this.onResponse.fire({ response });
+        this.onExchange.fire({ cached, exchange });
+
         return response;
     }
 }

@@ -2,18 +2,23 @@ import { Event } from "../../event/event";
 import { Http } from "../../protocol/protocol";
 
 export class Cache {
-    private cachedResponses: Map<string, Http.Response> = new Map();
+    private exchanges: Map<string, Http.Exchange> = new Map();
     private disabled: string[] = [];
 
-    public set(request: Http.Request, response: Http.Response) {
+    public set(request: Http.Request, response: Http.Response) : Http.Exchange {
         const hash = this.hash(request);
-        this.cachedResponses.set(hash, response);
+        let exchange = this.exchanges.has(hash) 
+            ? this.exchanges.get(hash)
+            : new Http.Exchange(request);
+        exchange.response = response;
+        this.exchanges.set(hash, exchange);
+        return exchange;
     }
 
-    public get(request: Http.Request): Http.Response {
+    public get(request: Http.Request): Http.Exchange {
         const hash = this.hash(request);
-        return this.cachedResponses.has(hash)
-            ? this.cachedResponses.get(hash)
+        return this.exchanges.has(hash)
+            ? this.exchanges.get(hash)
             : undefined;
     }
 
