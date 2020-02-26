@@ -6,7 +6,9 @@ const {
 
 async function createServer() {
 	const application = new Application();
-	application.start(__dirname + "/../extraResources");
+	application.start({
+		clientPath: __dirname + "/../extraResources"
+	});
 	return application;
 }
 

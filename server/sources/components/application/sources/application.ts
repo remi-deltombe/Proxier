@@ -12,12 +12,15 @@ export class Application {
     private api: Api;
     private controllers: Controller[];
 
-    public start(clientPath: string) {
+    public start({
+        clientPath: string,
+        port: number = 0
+    }) {
         this.socketserver = new SocketServer();
         this.webserver = new WebServer(clientPath);
         this.api = new Api(this.socketserver);
 
-        this.webserver.listen(8080);
+        this.webserver.listen(port);
         this.socketserver.listen(this.webserver);
 
         this.controllers = [new ProxyController(this.api)];
