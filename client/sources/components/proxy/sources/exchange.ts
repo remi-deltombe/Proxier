@@ -25,7 +25,7 @@ export class Exchange extends Http.Exchange implements Serializable {
     }
 
     deserialize(data: any) {
-        super.deserialize(data)
+        super.deserialize(data);
         this.url = data.url;
         this.method = data.method;
         this.cached = !!data.cached;

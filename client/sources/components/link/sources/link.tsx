@@ -7,14 +7,14 @@ import { LinkInterface } from "./interfaces";
 import { style } from "./styles";
 
 export function Link(config: LinkInterface) {
-	return (
-		<a
-			className="link"
-			css={style}
-			href={config.link}
-			target={config.blank ? "_blank" : ""}
-		>
-			{config.text}
-		</a>
-	);
+    return (
+        <a
+            className="link"
+            css={style}
+            href={config.link}
+            target={config.blank ? "_blank" : ""}
+        >
+            {config.text}
+        </a>
+    );
 }

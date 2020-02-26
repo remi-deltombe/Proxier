@@ -1,11 +1,11 @@
 export enum ButtonColor {
-	DEFAULT,
-	GREEN,
-	RED
+    DEFAULT,
+    GREEN,
+    RED
 }
 
 export interface ButtonInterface {
-	text: string;
-	color?: ButtonColor;
-	onClick?: () => void;
+    text: string;
+    color?: ButtonColor;
+    onClick?: () => void;
 }

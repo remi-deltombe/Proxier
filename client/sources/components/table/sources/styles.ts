@@ -19,8 +19,13 @@ export const style = css`
     }
 
     th {
+        position: relative;
         color: ${colors.grey1};
         border-bottom: 3px solid ${colors.grey9};
+
+        &.is-sortable {
+            cursor: pointer;
+        }
     }
 
     td {
@@ -33,5 +38,30 @@ export const style = css`
 
     .is-clickable {
         cursor: pointer;
+    }
+
+    .is-sortable {
+        &.is-sort-asc,
+        &.is-sort-desc {
+            &:after {
+                position: absolute;
+                right: 14px; 
+            }
+        }
+
+        &.is-sort-asc {
+            &:after {
+                content: '^';
+            }
+        }
+
+        &.is-sort-desc {
+            &:after {
+                content: 'v';
+            }
+        }
+        &.is-sort-none {
+            
+        }
     }
 `;

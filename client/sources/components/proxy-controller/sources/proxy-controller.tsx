@@ -47,12 +47,16 @@ export function ProxyController(config: ProxyControllerInterface): JSX.Element {
     React.useEffect(() => {
         if (proxyEndpoint) {
             const registrations = [
-                proxyEndpoint.onCreate.subscribe(proxy =>
-                    refreshProxies(proxy)
+                proxyEndpoint.onCreate.subscribe(created =>
+                    refreshProxies(created)
                 ),
-                proxyEndpoint.onUpdate.subscribe(proxy => refreshProxies()),
+                proxyEndpoint.onUpdate.subscribe(updated =>
+                    refreshProxies(proxy ?? updated)
+                ),
                 proxyEndpoint.onDelete.subscribe(proxy => refreshProxies()),
-                proxyEndpoint.onList.subscribe(proxies => refreshProxies())
+                proxyEndpoint.onList.subscribe(proxies =>
+                    refreshProxies(proxy ?? proxies[0])
+                )
             ];
 
             proxyEndpoint.list();

@@ -7,7 +7,8 @@ import {
     TableRowItemInterface,
     TableRowInterface,
     TableHeaderItemInterface,
-    TableInterface
+    TableInterface,
+    TableSortState
 } from "./interfaces";
 import { style } from "./styles";
 
@@ -35,8 +36,18 @@ export function TableRow(config: TableRowInterface) {
 }
 
 export function TableHeaderItem(config: TableHeaderItemInterface) {
+    const { sortState, onSort = () => TableSortState.NONE } = config;
+
     return (
-        <th {...config}>
+        <th
+            {...{ width: config.width }}
+            className={`${
+                config.sortable ? "is-sortable" : ""
+            } is-sort-${sortState}`}
+            onClick={() => {
+                if (config.sortable) onSort();
+            }}
+        >
             {config.text}
             {config.element}
         </th>

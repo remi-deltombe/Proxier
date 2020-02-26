@@ -1,5 +1,5 @@
 export interface LinkInterface {
-	text: string;
-	link: string;
-	blank?: boolean;
+    text: string;
+    link: string;
+    blank?: boolean;
 }
