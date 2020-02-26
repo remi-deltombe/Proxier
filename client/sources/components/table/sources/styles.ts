@@ -64,4 +64,8 @@ export const style = css`
             
         }
     }
+
+    label {
+        margin-bottom: 0;
+    }
 `;

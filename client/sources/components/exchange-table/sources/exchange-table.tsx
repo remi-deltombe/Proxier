@@ -108,7 +108,6 @@ export function ExchangeTable(config: ExchangeTableInterface) {
     }
 
     function buildHeaders() {
-        console.log(filter);
         return [
             {
                 key: "titles",
