@@ -10,7 +10,7 @@ export class Timestamp {
     }
 
     public format(): string {
-        return `${this.internalTimestamp}`;
+        return new Date(this.internalTimestamp).toLocaleString();
     }
 
     public updateWith(timestamp: number) {
