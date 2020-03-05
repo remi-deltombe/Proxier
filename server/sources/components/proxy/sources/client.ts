@@ -3,10 +3,16 @@ import * as https from "https";
 import * as http from "http";
 
 export class Client {
-    public send(request: Http.Request): Promise<Http.Response> {
-        return request.protocol == "http"
-            ? this.http(request)
-            : this.https(request);
+    public async send(request: Http.Request): Promise<Http.Response> {
+        try { 
+            return request.protocol == "http"
+                ? this.http(request)
+                : this.https(request);
+        }
+        catch(e)
+        {
+            return Http.serverNotFound()
+        }
     }
 
     private http(request: Http.Request): Promise<Http.Response> {
