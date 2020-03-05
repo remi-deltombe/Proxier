@@ -45,23 +45,22 @@ export const style = css`
         &.is-sort-desc {
             &:after {
                 position: absolute;
-                right: 14px; 
+                right: 14px;
             }
         }
 
         &.is-sort-asc {
             &:after {
-                content: '^';
+                content: "^";
             }
         }
 
         &.is-sort-desc {
             &:after {
-                content: 'v';
+                content: "v";
             }
         }
         &.is-sort-none {
-            
         }
     }
 

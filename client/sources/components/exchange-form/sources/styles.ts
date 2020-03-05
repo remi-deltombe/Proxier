@@ -23,7 +23,7 @@ export const style = () => {
         }
 
         .input-row {
-            display:flex;
+            display: flex;
             width: 100%;
         }
         .input-method {

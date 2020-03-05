@@ -113,7 +113,6 @@ export class Proxy {
         this.onResponse.fire({ response });
         this.onExchange.fire({ cached, exchange });
 
-
         return response;
     }
 }

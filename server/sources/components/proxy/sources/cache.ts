@@ -6,31 +6,28 @@ export class Cache {
     private exchanges: Map<string, Http.Exchange> = new Map();
     private disabled: string[] = [];
 
-    public set(request: Http.Request, response: Http.Response) : Http.Exchange {
+    public set(request: Http.Request, response: Http.Response): Http.Exchange {
         const hash = this.hash(request);
         const uuid = request.uuid.toString();
         let exchange = new Http.Exchange(request);
 
-        if(this.hashByRequestUuid.has(uuid))
-        {
-            exchange = this.exchanges.get(this.hashByRequestUuid.get(uuid))
-            this.hashByRequestUuid.delete(uuid)
+        if (this.hashByRequestUuid.has(uuid)) {
+            exchange = this.exchanges.get(this.hashByRequestUuid.get(uuid));
+            this.hashByRequestUuid.delete(uuid);
         }
 
         exchange.request = request;
         exchange.response = response;
 
         this.exchanges.set(hash, exchange);
-        this.hashByRequestUuid.set(uuid, hash)
-        
+        this.hashByRequestUuid.set(uuid, hash);
+
         return exchange;
     }
 
     public get(request: Http.Request): Http.Exchange {
         const hash = this.hash(request);
-        return this.exchanges.has(hash)
-            ? this.exchanges.get(hash)
-            : undefined;
+        return this.exchanges.has(hash) ? this.exchanges.get(hash) : undefined;
     }
 
     public cached(request: Http.Request) {
@@ -52,8 +49,6 @@ export class Cache {
     }
 
     private hash(request: Http.Request): string {
-        return `${request.method}|${request.hostname}|${
-            request.path
-        }`;
+        return `${request.method}|${request.hostname}|${request.path}`;
     }
 }

@@ -66,7 +66,7 @@ export class Controller extends EndpointController<Serializable> {
 
     private handleOnExchange(event: ProxyExchangeEvent) {
         const serializable = Serializable.fromProxyExchangeEvent(event);
-        
+
         for (const existing of this.serializables) {
             if (existing.equal(serializable)) {
                 this.endpoint.update(serializable);

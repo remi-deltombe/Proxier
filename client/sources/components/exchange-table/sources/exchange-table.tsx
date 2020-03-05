@@ -113,7 +113,7 @@ export function ExchangeTable(config: ExchangeTableInterface) {
                 key: "titles",
                 items: [
                     {
-                        text: "ID",
+                        text: "ID"
                     },
                     {
                         text: "Method",
@@ -152,8 +152,7 @@ export function ExchangeTable(config: ExchangeTableInterface) {
             {
                 key: "filters",
                 items: [
-                    {
-                    },
+                    {},
                     {
                         element: (
                             <InputText

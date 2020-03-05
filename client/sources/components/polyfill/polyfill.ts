@@ -1,2 +1,1 @@
-
-export * from './sources/facade'
+export * from "./sources/facade";

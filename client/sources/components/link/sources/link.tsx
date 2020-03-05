@@ -13,7 +13,7 @@ export function Link(config: LinkInterface) {
         <span
             className="link"
             css={style}
-            onClick={()=>openLink(config.link, config.blank)}
+            onClick={() => openLink(config.link, config.blank)}
         >
             {config.text}
         </span>

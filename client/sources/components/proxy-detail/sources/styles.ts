@@ -20,7 +20,7 @@ export const style = css`
         .left,
         .right {
             display: flex;
-            width:50%;
+            width: 50%;
         }
 
         .right {

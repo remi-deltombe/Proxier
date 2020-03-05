@@ -1,4 +1,1 @@
-
-export function openLink(url:string, blank:boolean = false) { 
-
-}
+export function openLink(url: string, blank: boolean = false) {}
