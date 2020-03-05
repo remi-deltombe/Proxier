@@ -113,6 +113,9 @@ export function ExchangeTable(config: ExchangeTableInterface) {
                 key: "titles",
                 items: [
                     {
+                        text: "ID",
+                    },
+                    {
                         text: "Method",
                         width: "60px",
                         sortable: true,
@@ -149,6 +152,8 @@ export function ExchangeTable(config: ExchangeTableInterface) {
             {
                 key: "filters",
                 items: [
+                    {
+                    },
                     {
                         element: (
                             <InputText
@@ -211,6 +216,7 @@ export function ExchangeTable(config: ExchangeTableInterface) {
             key: exchange.uuid,
             onClick: () => onExchangeFocus(exchange),
             items: [
+                { text: exchange.uuid.toString() },
                 { text: exchange.method },
                 {
                     element: (

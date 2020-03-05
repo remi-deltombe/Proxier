@@ -12,9 +12,9 @@ export class Application {
     private api: Api;
     private controllers: Controller[];
 
-    public start({
+    public start({clientPath, port = 0}:{
         clientPath: string,
-        port: number = 0
+        port: number
     }) {
         this.socketserver = new SocketServer();
         this.webserver = new WebServer(clientPath);

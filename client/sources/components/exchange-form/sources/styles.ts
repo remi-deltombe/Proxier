@@ -21,5 +21,17 @@ export const style = () => {
         table {
             border: 1px solid ${colors.grey8};
         }
+
+        .input-row {
+            display:flex;
+            width: 100%;
+        }
+        .input-method {
+            width: 100px;
+            margin-right: 14px;
+        }
+        .input-path {
+            width: 100%;
+        }
     `;
 };

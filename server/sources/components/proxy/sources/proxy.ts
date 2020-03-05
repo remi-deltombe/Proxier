@@ -61,7 +61,6 @@ export class Proxy {
             this.started = true;
             await this.server.listen();
             this.parser.source = this.server.url;
-            console.log(`proxy listening on port ${this.server.port}`);
         }
     }
 
@@ -109,11 +108,11 @@ export class Proxy {
             this.parser.parseResponse(response);
             exchange = this.cache.set(request, response);
         }
-
         exchange.requestedAt.updateWithNow();
 
         this.onResponse.fire({ response });
         this.onExchange.fire({ cached, exchange });
+
 
         return response;
     }

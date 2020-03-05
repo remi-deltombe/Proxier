@@ -2,16 +2,28 @@ import { Event } from "../../event/event";
 import { Http } from "../../protocol/protocol";
 
 export class Cache {
+    private hashByRequestUuid: Map<string, string> = new Map();
     private exchanges: Map<string, Http.Exchange> = new Map();
     private disabled: string[] = [];
 
     public set(request: Http.Request, response: Http.Response) : Http.Exchange {
+
         const hash = this.hash(request);
-        let exchange = this.exchanges.has(hash) 
-            ? this.exchanges.get(hash)
-            : new Http.Exchange(request);
+        const uuid = request.uuid.toString();
+        let exchange = new Http.Exchange(request);
+
+        if(this.hashByRequestUuid.has(uuid))
+        {
+            exchange = this.exchanges.get(this.hashByRequestUuid.get(uuid))
+            this.hashByRequestUuid.delete(uuid)
+        }
+
+        exchange.request = request;
         exchange.response = response;
+
         this.exchanges.set(hash, exchange);
+        this.hashByRequestUuid.set(uuid, hash)
+        
         return exchange;
     }
 
