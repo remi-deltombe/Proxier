@@ -12,15 +12,17 @@ async function createServer() {
 	return application;
 }
 
-async function createWindow() {
+async function createWindow(application) {
 	let win = new BrowserWindow({ width: 800, height: 600 });
+
+	console.log(application.port);
 	win.on("closed", () => {
 		win = null;
 	});
-	win.loadURL("http://localhost:8080/builds/bootstraps/client/index.html");
+	win.loadURL("http://127.0.0.1:" + application.port + "/builds/bootstraps/client/index.html");
 }
 
 app.on("ready", async () => {
 	const server = await createServer();
-	const window = await createWindow();
+	const window = await createWindow(server);
 });

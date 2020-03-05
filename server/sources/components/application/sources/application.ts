@@ -32,4 +32,8 @@ export class Application {
             controller.start();
         }
     }
+
+    public get port() : number {
+        return this.webserver.port;
+    }
 }
