@@ -10,7 +10,7 @@ export class Request implements SerializableInterface {
     public port: number = 80;
     public path: string = "/";
 
-    public rawBody: Buffer;
+    public rawBody: Buffer = Buffer.from([]);
 
     public clone(): Request {
         const result = new Request();

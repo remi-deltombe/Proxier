@@ -125,6 +125,10 @@ export class Endpoint<C extends SerializableInterface> {
 
     private async handleUpdate(payload: any) {
         const instance = this.instances.get(payload.uuid);
+        if(!instance)
+        {
+            throw 'unknow instance ['+payload.uuid+'] while updating in endpoint ['+this.internalId+']'; 
+        }
         instance.deserialize(payload.payload);
 
         const result = await this.onUpdate.fireAsync(instance);

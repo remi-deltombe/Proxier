@@ -37,6 +37,18 @@ export class Endpoint<C extends Serializable> {
         return this.internalSerializableClass;
     }
 
+    public save(serializable: C) {
+        if(this.instances.has(serializable.uuid.toString()))
+        {
+          this.update(serializable);  
+        } 
+        else
+        {
+            this.create(serializable);
+        }
+    }
+
+
     public create(serializable: C) {
         this.client.send(this.id, {
             action: ApiAction.CREATE,

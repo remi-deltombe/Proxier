@@ -110,7 +110,7 @@ export function ProxyController(config: ProxyControllerInterface): JSX.Element {
                     proxy={proxy}
                     exchanges={exchanges}
                     onExchangeChange={exchange =>
-                        exchangeEndpoint.update(exchange)
+                        exchangeEndpoint.save(exchange)
                     }
                     onExchangeGet={exchange => exchangeEndpoint.get(exchange)}
                 />

@@ -34,15 +34,25 @@ export function ProxyDetail(config: ProxyDetailInterface) {
     const link = `http://${proxy.hostname}:${proxy.port}`;
     const [exchange, setExchange] = React.useState<Exchange>(undefined);
 
+    function handleAddExchange()
+    {
+        setExchange(new Exchange());
+    }
+
     return (
         <div css={style}>
             <div className="header">
-                <div className="from">
-                    <Link text={link} link={link} blank={true} />
+                <div className="left">
+                    <div className="from">
+                        <Link text={link} link={link} blank={true} />
+                    </div>
+                    <div className="arrow">></div>
+                    <div className="to">
+                        <Link text={proxy.url} link={proxy.url} blank={true} />
+                    </div>
                 </div>
-                <div className="arrow">></div>
-                <div className="to">
-                    <Link text={proxy.url} link={proxy.url} blank={true} />
+                <div className="right">
+                    <Button text="Add new response" onClick={()=>handleAddExchange()}/>
                 </div>
             </div>
             <div className="content">
@@ -50,8 +60,9 @@ export function ProxyDetail(config: ProxyDetailInterface) {
                     <div className="title">Requests</div>
                     <ExchangeTable
                         {...config}
-                        onExchangeChange={exchange =>
-                            onExchangeChange(exchange)
+                        onExchangeChange={exchange => {
+                                onExchangeChange(exchange);
+                            }
                         }
                         onExchangeFocus={async exchange => {
                             onExchangeGet(exchange);
@@ -64,8 +75,10 @@ export function ProxyDetail(config: ProxyDetailInterface) {
                         <div className="title">Edit request</div>
                         <ExchangeForm
                             exchange={exchange}
-                            onExchangeChange={exchange =>
+                            onExchangeChange={exchange =>{
                                 onExchangeChange(exchange)
+                                setExchange(undefined);
+                            }
                             }
                             onClose={() => {
                                 setExchange(undefined);

@@ -7,7 +7,6 @@ export class Cache {
     private disabled: string[] = [];
 
     public set(request: Http.Request, response: Http.Response) : Http.Exchange {
-
         const hash = this.hash(request);
         const uuid = request.uuid.toString();
         let exchange = new Http.Exchange(request);
@@ -55,6 +54,6 @@ export class Cache {
     private hash(request: Http.Request): string {
         return `${request.method}|${request.hostname}|${
             request.path
-        }|${request.rawBody.toString()}`;
+        }`;
     }
 }

@@ -16,6 +16,19 @@ export const style = css`
             padding: 14px;
             font-size: 16px;
         }
+
+        .left,
+        .right {
+            display: flex;
+            width:50%;
+        }
+
+        .right {
+            justify-content: flex-end;
+            .button {
+                margin-top: 8px;
+            }
+        }
     }
 
     .content {
