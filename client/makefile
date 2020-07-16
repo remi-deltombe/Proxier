@@ -1,9 +1,11 @@
 
 install:
 	@npm install
+	@cd ./tools/gulp && @npm install
 
 update:
 	@npm update
+	@cd ./tools/gulp && @npm update
 
 build:
 	@cd ./tools/gulp && gulp --gulpfile ./index.js build  --max-old-space-size=8192 ${ARGS}
