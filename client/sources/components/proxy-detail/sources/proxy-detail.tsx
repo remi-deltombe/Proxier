@@ -45,7 +45,7 @@ export function ProxyDetail(config: ProxyDetailInterface) {
                     <div className="from">
                         <Link text={link} link={link} blank={true} />
                     </div>
-                    <div className="arrow">></div>
+                    <div className="arrow">{'>'}</div>
                     <div className="to">
                         <Link text={proxy.url} link={proxy.url} blank={true} />
                     </div>
