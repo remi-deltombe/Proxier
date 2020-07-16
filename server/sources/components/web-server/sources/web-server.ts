@@ -24,7 +24,7 @@ export class WebServer {
     }
 
     public async listen(port: number = 0): Promise<boolean> {
-        return new Promise(resolve => {
+        return new Promise((resolve) => {
             this.app = express();
             this.app.use(express.static(this.clientPath));
             this.server = this.app.listen(port, "127.0.0.1", () => {

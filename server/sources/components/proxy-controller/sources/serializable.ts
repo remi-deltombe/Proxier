@@ -12,7 +12,7 @@ export class Serializable implements SerializableInterface {
         return {
             url: this.url,
             hostname: this.hostname,
-            port: this.port
+            port: this.port,
         };
     }
 

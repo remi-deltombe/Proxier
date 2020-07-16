@@ -9,7 +9,7 @@ import { Cache } from "./cache";
 import {
     ProxyRequestEvent,
     ProxyResponseEvent,
-    ProxyExchangeEvent
+    ProxyExchangeEvent,
 } from "./interfaces";
 
 export class Proxy {
@@ -37,7 +37,9 @@ export class Proxy {
             this.url = url;
         }
 
-        this.server.onRequest.subscribe(request => this.handleRequest(request));
+        this.server.onRequest.subscribe((request) =>
+            this.handleRequest(request)
+        );
     }
 
     public set url(url: string) {

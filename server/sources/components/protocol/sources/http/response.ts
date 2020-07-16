@@ -43,7 +43,7 @@ export class Response implements SerializableInterface {
         const result = {
             code: this.code,
             header: {},
-            body: this.body
+            body: this.body,
         };
 
         for (const entry of this.header.entries()) {

@@ -70,7 +70,7 @@ export class Request implements SerializableInterface {
             hostname: this.hostname,
             protocol: this.protocol,
             port: this.port,
-            path: this.path
+            path: this.path,
         };
 
         for (const h in this.header) {

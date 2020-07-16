@@ -23,12 +23,12 @@ export class Server {
     }
 
     public async listen(port: number = 0): Promise<boolean> {
-        return new Promise(resolve => {
+        return new Promise((resolve) => {
             this.app = express();
 
-            this.app.use(function(req, res, next) {
+            this.app.use(function (req, res, next) {
                 const buffer: any = [];
-                req.on("data", chunk => {
+                req.on("data", (chunk) => {
                     buffer.push(chunk);
                 });
 

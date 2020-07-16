@@ -13,16 +13,16 @@ export class SocketServer {
     }
 
     public async listen(webServer: WebServer): Promise<boolean> {
-        return new Promise(resolve => {
+        return new Promise((resolve) => {
             this.io = io();
 
             this.io.attach(webServer.http);
 
-            this.io.on("connection", socket => {
-                socket.use(data => {
+            this.io.on("connection", (socket) => {
+                socket.use((data) => {
                     this.onMessage.fire({
                         id: data[0],
-                        payload: data[1]
+                        payload: data[1],
                     });
                 });
             });

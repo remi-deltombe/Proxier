@@ -12,7 +12,7 @@ export class Serializable extends Http.Exchange
             ...super.serialize(children),
             cached: this.cached,
             url: this.request.url(),
-            method: this.request.method
+            method: this.request.method,
         };
     }
 

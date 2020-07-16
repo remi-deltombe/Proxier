@@ -29,7 +29,7 @@ export class Exchange implements SerializableInterface {
             createdAt: this.createdAt.timestamp(),
             requestedAt: this.requestedAt.timestamp(),
             request: this.request.serialize(children),
-            response: this.response.serialize(children)
+            response: this.response.serialize(children),
         };
     }
 

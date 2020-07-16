@@ -1,7 +1,7 @@
 import { Controller } from "./controller";
 import {
     SerializableInterface,
-    SerializableClass
+    SerializableClass,
 } from "../../serializable/serializable";
 import { Api, Endpoint } from "../../api/api";
 import { Registration } from "../../event/event";
@@ -22,18 +22,18 @@ export abstract class EndpointController<
 
     public start(): void {
         this.endpointRegistrations = [
-            this.endpoint.onList.subscribe(serializables =>
+            this.endpoint.onList.subscribe((serializables) =>
                 this.handleOnList(serializables)
             ),
-            this.endpoint.onCreate.subscribe(serializable =>
+            this.endpoint.onCreate.subscribe((serializable) =>
                 this.handleOnCreate(serializable)
             ),
-            this.endpoint.onUpdate.subscribe(serializable =>
+            this.endpoint.onUpdate.subscribe((serializable) =>
                 this.handleOnUpdate(serializable)
             ),
-            this.endpoint.onDelete.subscribe(serializable =>
+            this.endpoint.onDelete.subscribe((serializable) =>
                 this.handleOnDelete(serializable)
-            )
+            ),
         ];
     }
 

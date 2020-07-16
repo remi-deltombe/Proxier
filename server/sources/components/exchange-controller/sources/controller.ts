@@ -20,9 +20,9 @@ export class Controller extends EndpointController<Serializable> {
         super.start();
 
         this.registrations = [
-            this.proxy.onExchange.subscribe(event =>
+            this.proxy.onExchange.subscribe((event) =>
                 this.handleOnExchange(event)
-            )
+            ),
         ];
     }
 

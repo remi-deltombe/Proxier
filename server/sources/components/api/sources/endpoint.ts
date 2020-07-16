@@ -1,7 +1,7 @@
 import { AsyncEvent } from "../../event/event";
 import {
     SerializableInterface,
-    SerializableClass
+    SerializableClass,
 } from "../../serializable/serializable";
 import { SocketServer } from "../../socket-server/socket-server";
 import { ApiAction } from "./interfaces";
@@ -44,7 +44,7 @@ export class Endpoint<C extends SerializableInterface> {
         this.server.send(this.id, {
             action: ApiAction.CREATE,
             uuid: serializable.uuid.toString(),
-            payload: serializable.serialize()
+            payload: serializable.serialize(),
         });
     }
 
@@ -53,7 +53,7 @@ export class Endpoint<C extends SerializableInterface> {
         this.server.send(this.id, {
             action: ApiAction.UPDATE,
             uuid: serializable.uuid.toString(),
-            payload: serializable.serialize()
+            payload: serializable.serialize(),
         });
     }
 
@@ -61,7 +61,7 @@ export class Endpoint<C extends SerializableInterface> {
         this.instances.delete(serializable.uuid.toString());
         this.server.send(this.id, {
             action: ApiAction.DELETE,
-            uuid: serializable.uuid.toString()
+            uuid: serializable.uuid.toString(),
         });
     }
 
@@ -69,17 +69,17 @@ export class Endpoint<C extends SerializableInterface> {
         this.server.send(this.id, {
             action: ApiAction.GET,
             uuid: serializable.uuid.toString(),
-            payload: serializable.serialize(true)
+            payload: serializable.serialize(true),
         });
     }
 
     public list(serializables: SerializableInterface[]) {
         this.server.send(this.id, {
             action: ApiAction.LIST,
-            payload: serializables.map(v => ({
+            payload: serializables.map((v) => ({
                 uuid: v.uuid.toString(),
-                ...v.serialize()
-            }))
+                ...v.serialize(),
+            })),
         });
     }
 
@@ -126,11 +126,13 @@ export class Endpoint<C extends SerializableInterface> {
     private async handleUpdate(payload: any) {
         const instance = this.instances.get(payload.uuid);
         if (!instance) {
-            throw "unknow instance [" +
+            throw (
+                "unknow instance [" +
                 payload.uuid +
                 "] while updating in endpoint [" +
                 this.internalId +
-                "]";
+                "]"
+            );
         }
         instance.deserialize(payload.payload);
 

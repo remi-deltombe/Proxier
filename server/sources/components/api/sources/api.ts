@@ -12,7 +12,7 @@ export class Api {
 
     constructor(server: SocketServer) {
         this.server = server;
-        this.server.onMessage.subscribe(event =>
+        this.server.onMessage.subscribe((event) =>
             this.handleMessage(event.id, event.payload)
         );
     }

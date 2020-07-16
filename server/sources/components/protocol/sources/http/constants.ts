@@ -7,5 +7,5 @@ export const BINARY_TYPES: string[] = [
     "application/octet-stream",
     "application/font-woff",
     "font/woff2",
-    "application/x-font-woff"
+    "application/x-font-woff",
 ];

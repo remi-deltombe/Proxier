@@ -14,7 +14,7 @@ export class Application {
 
     public start({
         clientPath,
-        port = 0
+        port = 0,
     }: {
         clientPath: string;
         port: number;
@@ -33,7 +33,7 @@ export class Application {
         }
     }
 
-    public get port() : number {
+    public get port(): number {
         return this.webserver.port;
     }
 }

@@ -4,24 +4,22 @@ import * as http from "http";
 
 export class Client {
     public async send(request: Http.Request): Promise<Http.Response> {
-        try { 
+        try {
             return request.protocol == "http"
                 ? this.http(request)
                 : this.https(request);
-        }
-        catch(e)
-        {
-            return Http.serverNotFound()
+        } catch (e) {
+            return Http.serverNotFound();
         }
     }
 
     private http(request: Http.Request): Promise<Http.Response> {
-        return new Promise(resolve => {
+        return new Promise((resolve) => {
             const headers: any = {};
             const bannedHeader: string[] = [
                 "host",
                 "accept-encoding",
-                "referer"
+                "referer",
             ];
 
             for (const header of request.header) {
@@ -36,9 +34,9 @@ export class Client {
                     port: request.port,
                     path: request.path,
                     method: request.method,
-                    headers: headers
+                    headers: headers,
                 },
-                function(res) {
+                function (res) {
                     const response = new Http.Response();
                     response.code = res.statusCode;
 
@@ -54,7 +52,7 @@ export class Client {
                     }
 
                     const buffer: any = [];
-                    res.on("data", chunk => {
+                    res.on("data", (chunk) => {
                         buffer.push(chunk);
                     });
 
@@ -75,7 +73,7 @@ export class Client {
     }
 
     private https(request: Http.Request): Promise<Http.Response> {
-        return new Promise(resolve => {
+        return new Promise((resolve) => {
             const headers: any = {};
 
             const bannedHeader: string[] = ["accept-encoding"];
@@ -91,9 +89,9 @@ export class Client {
                     port: request.port,
                     path: request.path,
                     method: request.method,
-                    headers: headers
+                    headers: headers,
                 },
-                function(res) {
+                function (res) {
                     const response = new Http.Response();
                     response.code = res.statusCode;
 
@@ -109,7 +107,7 @@ export class Client {
                     }
 
                     const buffer: any = [];
-                    res.on("data", chunk => {
+                    res.on("data", (chunk) => {
                         buffer.push(chunk);
                     });
 
